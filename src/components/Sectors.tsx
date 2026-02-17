@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
+import { Building2, GraduationCap, Building, Palmtree, Gamepad2, Landmark, House, HeartPulse } from "lucide-react";
 
 const sectors = [
-  "Public Sector", "Education", "Smart Cities", "Tourism",
-  "Gaming & Loyalty", "Financial Services", "Real Estate", "Healthcare",
+  { label: "Public Sector", icon: Building2 },
+  { label: "Education", icon: GraduationCap },
+  { label: "Smart Cities", icon: Building },
+  { label: "Tourism", icon: Palmtree },
+  { label: "Gaming & Loyalty", icon: Gamepad2 },
+  { label: "Financial Services", icon: Landmark },
+  { label: "Real Estate", icon: House },
+  { label: "Healthcare", icon: HeartPulse },
 ];
 
 const Sectors = () => {
@@ -30,14 +37,16 @@ const Sectors = () => {
         <div className="flex flex-wrap gap-3">
           {sectors.map((s, i) => (
             <motion.span
-              key={s}
+              key={s.label}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="rounded-full border border-border px-6 py-3 font-display text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              whileHover={{ y: -2 }}
+              className="group inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 font-display text-sm font-medium text-foreground transition-all hover:border-primary/40 hover:bg-primary/10 hover:pr-7 hover:text-primary"
             >
-              {s}
+              <s.icon size={14} className="opacity-0 transition-all group-hover:opacity-100" />
+              {s.label}
             </motion.span>
           ))}
         </div>

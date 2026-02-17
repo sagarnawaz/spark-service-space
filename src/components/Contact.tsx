@@ -6,12 +6,24 @@ import { useToast } from "@/hooks/use-toast";
 const Contact = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [botField, setBotField] = useState("");
+  const [startedAt] = useState(() => Date.now());
+  const [focused, setFocused] = useState<"name" | "email" | "message" | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmed = { name: form.name.trim(), email: form.email.trim(), message: form.message.trim() };
+    if (botField) return;
+    if (Date.now() - startedAt < 1500) {
+      toast({ title: "Please wait a second and try again", variant: "destructive" });
+      return;
+    }
     if (!trimmed.name || !trimmed.email || !trimmed.message) {
       toast({ title: "Please fill in all fields", variant: "destructive" });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed.email)) {
+      toast({ title: "Please enter a valid email address", variant: "destructive" });
       return;
     }
     toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
@@ -28,10 +40,10 @@ const Contact = () => {
           className="mb-16"
         >
           <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            Get In Touch
+            Enterprise CTA
           </span>
           <h2 className="mt-4 font-display text-3xl font-bold md:text-4xl lg:text-5xl">
-            Ready To Build <span className="text-gradient">The Future?</span>
+            Let's Build Infrastructure <span className="text-gradient">That Scales With You.</span>
           </h2>
         </motion.div>
 
@@ -43,6 +55,15 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-5"
           >
+            <input
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={botField}
+              onChange={(e) => setBotField(e.target.value)}
+              className="hidden"
+              aria-hidden="true"
+            />
             {[
               { label: "Name", type: "text", key: "name" as const, placeholder: "Your name", max: 100 },
               { label: "Email", type: "email", key: "email" as const, placeholder: "your@email.com", max: 255 },
@@ -54,7 +75,11 @@ const Contact = () => {
                   maxLength={field.max}
                   value={form[field.key]}
                   onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
-                  className="w-full rounded-xl border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                  onFocus={() => setFocused(field.key)}
+                  onBlur={() => setFocused(null)}
+                  className={`w-full rounded-xl border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground transition-all focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
+                    focused === field.key ? "shadow-[0_0_0_1px_hsl(160_100%_45%_/_0.25),0_0_24px_hsl(160_100%_45%_/_0.15)]" : ""
+                  }`}
                   placeholder={field.placeholder}
                 />
               </div>
@@ -66,15 +91,19 @@ const Contact = () => {
                 rows={5}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full rounded-xl border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                onFocus={() => setFocused("message")}
+                onBlur={() => setFocused(null)}
+                className={`w-full rounded-xl border border-border bg-background px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground transition-all focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary ${
+                  focused === "message" ? "shadow-[0_0_0_1px_hsl(160_100%_45%_/_0.25),0_0_24px_hsl(160_100%_45%_/_0.15)]" : ""
+                }`}
                 placeholder="Tell us about your project..."
               />
             </div>
             <button
               type="submit"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+              className="glow-sm inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3.5 font-display text-sm font-semibold text-primary-foreground transition-all hover:scale-[1.03] hover:animate-pulse"
             >
-              Send Message <Send size={16} />
+              Schedule a Consultation <Send size={16} />
             </button>
           </motion.form>
 

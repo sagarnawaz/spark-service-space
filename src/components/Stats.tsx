@@ -1,48 +1,42 @@
 import { motion } from "framer-motion";
+import { Server, Gauge, Blocks, LockKeyhole } from "lucide-react";
 
-const stats = [
-  { value: "50+", label: "Projects delivered across sectors" },
-  { value: "99.2%", label: "Uptime across all deployed platforms" },
-  { value: "1.2M+", label: "Transactions processed through our systems" },
-  { value: "30+", label: "Enterprise clients worldwide" },
-  { value: "5+", label: "Years of proven delivery" },
-  { value: "40%", label: "Average efficiency gain for clients" },
+const metrics = [
+  { icon: Server, title: "99.9% Uptime Architecture" },
+  { icon: Gauge, title: "High-Performance Infrastructure" },
+  { icon: Blocks, title: "Scalable Modular Systems" },
+  { icon: LockKeyhole, title: "Security-First Engineering" },
 ];
 
 const Stats = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-particles section-padding bg-background">
       <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            Impact
-          </span>
-          <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold md:text-4xl lg:text-5xl">
-            Work That Moves <span className="text-gradient">The World</span>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-14">
+          <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary">Technical Excellence</span>
+          <h2 className="mt-4 max-w-3xl font-display text-3xl font-bold md:text-4xl lg:text-5xl">
+            Performance is a core engineering requirement.
           </h2>
-          <p className="mt-4 max-w-xl text-muted-foreground">
-            Every milestone tells a story of progress. From smarter payments to connected
-            ecosystems, our work turns ideas into outcomes.
+          <p className="mt-4 max-w-2xl text-muted-foreground">
+            We architect systems that grow with your business - not against it.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-          {stats.map((s, i) => (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {metrics.map((metric, index) => (
             <motion.div
-              key={s.label}
+              key={metric.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8"
+              transition={{ delay: index * 0.08 }}
+              whileHover={{ y: -6 }}
+              className="card-glass flex min-h-[170px] flex-col justify-between p-6"
             >
-              <div className="font-display text-3xl font-extrabold text-primary md:text-4xl">{s.value}</div>
-              <p className="mt-2 text-sm text-muted-foreground">{s.label}</p>
+              <div className="inline-flex w-fit rounded-xl bg-primary/10 p-3 text-primary">
+                <metric.icon size={20} />
+              </div>
+              <p className="mt-6 font-display text-lg font-semibold">{metric.title}</p>
             </motion.div>
           ))}
         </div>
