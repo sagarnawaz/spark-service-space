@@ -1,94 +1,59 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Smartphone, LayoutDashboard } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-hero">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 opacity-30"
-        style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
-      />
-      <div className="absolute inset-0 bg-background/60" />
+    <section id="home" className="relative flex min-h-screen items-center overflow-hidden bg-background">
+      {/* Subtle radial glow */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[120px]" />
+      </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 pt-20 text-center">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-28 pb-20 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm text-primary"
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="max-w-5xl"
         >
-          <span className="h-1.5 w-1.5 animate-pulse-glow rounded-full bg-primary" />
-          Building Digital Experiences
+          <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+            We Don't Just{" "}
+            <br className="hidden sm:block" />
+            <span className="text-gradient">Build Systems</span>
+            <br />
+            We Shape{" "}
+            <span className="text-gradient">What's Next.</span>
+          </h1>
         </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          We Build{" "}
-          <span className="text-gradient">Web & Mobile</span>
-          <br />
-          Apps That Scale
-        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
-          From concept to deployment — we craft modern, high-performance applications
-          with cutting-edge technology and pixel-perfect design.
+          From digital wallets to cross-border platforms, we create technology that
+          doesn't just keep up with change — it defines it.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-10 flex flex-col gap-4 sm:flex-row"
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="mt-12 flex flex-col gap-4 sm:flex-row"
         >
           <a
             href="#portfolio"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-3.5 font-display text-sm font-semibold text-primary-foreground transition-all hover:opacity-90"
+            className="inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4 font-display text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
-            View Our Work <ArrowRight size={16} />
+            See Our Work <ArrowRight size={18} />
           </a>
           <a
             href="#services"
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-secondary px-8 py-3.5 font-display text-sm font-semibold text-secondary-foreground transition-all hover:bg-muted"
+            className="inline-flex items-center gap-3 rounded-full border border-border px-8 py-4 font-display text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
           >
-            Our Services
+            Our Capabilities
           </a>
-        </motion.div>
-
-        {/* Floating icons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="mt-20 flex gap-12 text-muted-foreground"
-        >
-          {[
-            { icon: Code2, label: "Web Development" },
-            { icon: Smartphone, label: "Mobile Apps" },
-            { icon: LayoutDashboard, label: "Dashboards" },
-          ].map(({ icon: Icon, label }, i) => (
-            <motion.div
-              key={label}
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, delay: i * 0.8 }}
-              className="flex flex-col items-center gap-2"
-            >
-              <div className="rounded-xl border border-border bg-card p-3">
-                <Icon size={24} className="text-primary" />
-              </div>
-              <span className="text-xs">{label}</span>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>
