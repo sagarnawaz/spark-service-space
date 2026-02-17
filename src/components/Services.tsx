@@ -1,37 +1,13 @@
 import { motion } from "framer-motion";
-import { Code2, Smartphone, LayoutDashboard, Wrench, Globe, Zap } from "lucide-react";
+import { Code2, Smartphone, LayoutDashboard, Wrench, Globe, Zap, ArrowUpRight } from "lucide-react";
 
 const services = [
-  {
-    icon: Code2,
-    title: "Web Development",
-    description: "Full-stack web applications built with modern frameworks. Fast, scalable, and beautifully designed.",
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    description: "Cross-platform mobile apps for iOS and Android with native-like performance and sleek UX.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Admin Dashboards",
-    description: "Powerful admin panels and automation tools that streamline your business operations.",
-  },
-  {
-    icon: Wrench,
-    title: "Maintenance & Support",
-    description: "Ongoing support, bug fixes, performance optimization, and feature enhancements.",
-  },
-  {
-    icon: Globe,
-    title: "SEO & Optimization",
-    description: "Search engine optimization, performance tuning, and accessibility improvements.",
-  },
-  {
-    icon: Zap,
-    title: "API & Integrations",
-    description: "RESTful APIs, third-party integrations, and microservices architecture design.",
-  },
+  { icon: Code2, title: "Web Development", desc: "Full-stack web applications built with modern frameworks, optimized for speed and scale." },
+  { icon: Smartphone, title: "Mobile Apps", desc: "Cross-platform mobile experiences for iOS and Android with native-like performance." },
+  { icon: LayoutDashboard, title: "Admin Dashboards", desc: "Powerful dashboards and automation tools that streamline your operations." },
+  { icon: Zap, title: "AI Enablement", desc: "Integrate intelligent automation and AI-driven insights into your products." },
+  { icon: Globe, title: "Ecosystem Building", desc: "Connected platforms that link users, services, and data across your business." },
+  { icon: Wrench, title: "Process Evolution", desc: "Modernize legacy systems and optimize workflows for maximum efficiency." },
 ];
 
 const Services = () => {
@@ -42,32 +18,51 @@ const Services = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-6"
         >
-          <span className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</span>
-          <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl lg:text-5xl">
-            Our <span className="text-gradient">Services</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            End-to-end development services to bring your digital vision to life.
-          </p>
+          <span className="font-display text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+            Capabilities
+          </span>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-6 max-w-3xl font-display text-3xl font-bold leading-tight md:text-4xl lg:text-5xl"
+        >
+          Not Your Average <br />
+          <span className="text-gradient">Technology Forge.</span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 max-w-2xl text-muted-foreground"
+        >
+          We create technology that doesn't just keep up with change but defines it.
+          Every challenge is a chance to rethink, rebuild and make progress that works for everyone.
+        </motion.p>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
             <motion.div
-              key={service.title}
+              key={s.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group rounded-xl border border-border bg-gradient-card p-8 transition-all hover:border-primary/30 hover:shadow-[0_0_30px_-5px_hsl(175_80%_50%/0.15)]"
+              transition={{ delay: i * 0.08 }}
+              className="group card-glass p-8 transition-all hover:border-primary/30"
             >
-              <div className="mb-5 inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary/20">
-                <service.icon size={24} />
+              <div className="mb-6 flex items-center justify-between">
+                <div className="rounded-xl bg-primary/10 p-3 text-primary">
+                  <s.icon size={22} />
+                </div>
+                <ArrowUpRight size={18} className="text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-primary" />
               </div>
-              <h3 className="mb-3 font-display text-lg font-semibold text-foreground">{service.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+              <h3 className="mb-2 font-display text-lg font-semibold">{s.title}</h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
             </motion.div>
           ))}
         </div>

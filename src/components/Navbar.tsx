@@ -4,10 +4,9 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "Capabilities", href: "#services" },
+  { label: "Work", href: "#portfolio" },
   { label: "About", href: "#about" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -18,48 +17,44 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl"
+      transition={{ duration: 0.6 }}
+      className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#home" className="font-display text-xl font-bold tracking-tight">
-          <span className="text-gradient">Nexus</span>
-          <span className="text-foreground">Dev</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-12">
+        <a href="#home" className="font-display text-2xl font-bold tracking-tight text-foreground">
+          Nexus<span className="text-primary">Dev</span>
         </a>
 
-        {/* Desktop */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+              className="font-display text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="rounded-lg bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90"
+            className="rounded-full bg-primary px-6 py-2.5 font-display text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
-            Get a Quote
+            Let's Talk
           </a>
         </div>
 
-        {/* Mobile toggle */}
         <button onClick={() => setOpen(!open)} className="text-foreground md:hidden">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-border/50 bg-background/95 backdrop-blur-xl md:hidden"
+            className="overflow-hidden bg-background/95 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link) => (
@@ -67,7 +62,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                  className="font-display text-sm text-muted-foreground hover:text-foreground"
                 >
                   {link.label}
                 </a>
@@ -75,9 +70,9 @@ const Navbar = () => {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-semibold text-primary-foreground"
+                className="mt-2 rounded-full bg-primary px-6 py-2.5 text-center font-display text-sm font-semibold text-primary-foreground"
               >
-                Get a Quote
+                Let's Talk
               </a>
             </div>
           </motion.div>
