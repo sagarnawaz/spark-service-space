@@ -1046,7 +1046,7 @@ const Index = () => {
                 </select>
                 <textarea
                   className='input-premium min-h-32 md:col-span-2'
-                  placeholder='Message'
+                  placeholder='Message' 
                   required
                 />
                 <button
