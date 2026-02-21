@@ -1,11 +1,14 @@
 ﻿import { ArrowRight, Check, ChevronDown, Cloud, Code2, Cpu, Figma, Github, Globe, Instagram, Layers3, Linkedin, Lock, Menu, MonitorSmartphone, Rocket, Server, Sparkles, Star, Twitter, X,} from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { FaAws } from 'react-icons/fa'
 import { IconType } from 'react-icons'
 import { SiDocker, SiFigma, SiFlutter, SiMongodb, SiNextdotjs, SiNodedotjs, SiPython, SiReact, SiTypescript,} from 'react-icons/si'
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import {
-  features,
+  beliefs,
+  coreValues,
+  faqItems,
   navLinks,
   portfolio,
   processSteps,
@@ -34,6 +37,18 @@ type MagneticButtonProps = {
 type TechItem = {
   name: string
   icon: IconType
+}
+
+type LocalizedService = {
+  title: string
+  poetic: string
+  description: string
+  tag: string
+}
+
+type LocalizedProcess = {
+  title: string
+  text: string
 }
 
 const useInView = ({ threshold = 0.18, rootMargin = '0px' }: InViewOptions = {}) => {
@@ -329,6 +344,8 @@ const HeroNetwork = () => {
   )
 }
 const Index = () => {
+  const { t, i18n } = useTranslation()
+  const currentLang = i18n.resolvedLanguage ?? 'en'
   const [showLoader, setShowLoader] = useState(true)
   const [navbarSolid, setNavbarSolid] = useState(false)
   const [mobileMenu, setMobileMenu] = useState(false)
@@ -337,11 +354,40 @@ const Index = () => {
   const [cursorHover, setCursorHover] = useState(false)
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const [portfolioDot, setPortfolioDot] = useState(0)
+  const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0)
   const [activeProject, setActiveProject] = useState<(typeof portfolio)[number] | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
   const portfolioRef = useRef<HTMLDivElement | null>(null)
   const { ref: statsRef, inView: statsInView } = useInView({ threshold: 0.35 })
+
+  const localizedNav = useMemo(
+    () => [
+      { id: 'home', label: t('nav.home') },
+      { id: 'services', label: t('nav.services') },
+      { id: 'work', label: t('nav.work') },
+      { id: 'about', label: t('nav.about') },
+      { id: 'faq', label: t('nav.faq') },
+      { id: 'contact', label: t('nav.contact') },
+    ],
+    [t],
+  )
+
+  const localizedServices = useMemo(() => {
+    const value = t('services.items', { returnObjects: true })
+    return Array.isArray(value) ? (value as LocalizedService[]) : []
+  }, [t])
+
+  const localizedProcess = useMemo(() => {
+    const value = t('process.items', { returnObjects: true })
+    return Array.isArray(value) ? (value as LocalizedProcess[]) : []
+  }, [t])
+
+  useEffect(() => {
+    const isRtl = ['ar', 'ur'].includes(currentLang)
+    document.documentElement.lang = currentLang
+    document.documentElement.dir = isRtl ? 'rtl' : 'ltr'
+  }, [currentLang])
 
   useEffect(() => {
     const timer = window.setTimeout(() => setShowLoader(false), 3000)
@@ -356,7 +402,7 @@ const Index = () => {
   }, [])
 
   useEffect(() => {
-    const ids = navLinks.map(item => item.id)
+    const ids = localizedNav.map(item => item.id)
     const elements = ids.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[]
     const observer = new IntersectionObserver(
       entries => {
@@ -368,7 +414,7 @@ const Index = () => {
     )
     elements.forEach(el => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [localizedNav])
 
   useEffect(() => {
     const onMove = (event: MouseEvent) => {
@@ -463,7 +509,7 @@ const Index = () => {
               <img src='/branding/sovertick-logo.svg' alt='Sovertick' className='brand-logo-full' />
             </a>
             <nav className='hidden items-center gap-8 lg:flex'>
-              {navLinks.map(link => (
+              {localizedNav.map(link => (
                 <a
                   key={link.id}
                   href={`#${link.id}`}
@@ -478,7 +524,7 @@ const Index = () => {
               href='#contact'
               className='cta-main hidden items-center gap-2 rounded-full px-5 py-2.5 lg:inline-flex'
             >
-              Let's Build <ArrowRight className='h-4 w-4' />
+              {t('hero.ctaBuild', "Let's Build")} <ArrowRight className='h-4 w-4' />
             </MagneticButton>
             <button
               type='button'
@@ -501,7 +547,7 @@ const Index = () => {
                 exit={{ opacity: 0, y: -18 }}
                 className='mobile-menu'
               >
-                {navLinks.map((link, index) => (
+                {localizedNav.map((link, index) => (
                   <motion.a
                     key={link.id}
                     href={`#${link.id}`}
@@ -529,7 +575,7 @@ const Index = () => {
                   transition={{ delay: 0.2, type: 'spring' }}
                   className='hero-badge'
                 >
-                  <Globe className='h-3.5 w-3.5' /> Global Software Excellence
+                  <Globe className='h-3.5 w-3.5' /> {t('hero.badge')}
                 </motion.p>
                 <div className='mt-7 space-y-2'>
                   <motion.h1
@@ -538,7 +584,7 @@ const Index = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0 }}
                   >
-                    We Don't Build Software.
+                    {t('hero.title1')}
                   </motion.h1>
                   <motion.h1
                     className='hero-title gradient-title shimmer-text'
@@ -546,7 +592,7 @@ const Index = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    We Build What's Next.
+                    {t('hero.title2')}
                   </motion.h1>
                 </div>
                 <motion.p
@@ -555,8 +601,7 @@ const Index = () => {
                   transition={{ delay: 0.6 }}
                   className='mt-6 max-w-xl text-lg italic text-[#6E7191]'
                 >
-                  We engineer next-gen AI products, cloud platforms, and intelligent systems for
-                  ambitious global enterprises.
+                  {t('hero.subtitle')}
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 16, scale: 0.9 }}
@@ -568,13 +613,13 @@ const Index = () => {
                     href='#work'
                     className='cta-main pulse-ring inline-flex items-center gap-2 rounded-full px-6 py-3 whitespace-nowrap'
                   >
-                    See Our Work <ArrowRight className='h-4 w-4' />
+                    {t('hero.ctaWork')} <ArrowRight className='h-4 w-4' />
                   </MagneticButton>
                   <MagneticButton
                     href='#about'
                     className='cta-ghost inline-flex items-center gap-2 rounded-full px-6 py-3 whitespace-nowrap'
                   >
-                    Our Story
+                    {t('hero.ctaStory')}
                   </MagneticButton>
                 </motion.div>
               </div>
@@ -605,7 +650,11 @@ const Index = () => {
 
           <Section id='services' className='section-services px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-7xl'>
-              <SectionHeader lead='What We' accent='Create' poetic='Every solution, a new standard.' />
+              <SectionHeader
+                lead={t('services.lead')}
+                accent={t('services.accent')}
+                poetic={t('services.poetic')}
+              />
               <div className='mt-12 grid gap-6 md:grid-cols-3'>
                 {serviceCards.map((card, index) => (
                   <motion.article
@@ -620,11 +669,17 @@ const Index = () => {
                     <div className='service-icon-wrap'>
                       <card.icon className='h-6 w-6' />
                     </div>
-                    <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>{card.title}</h3>
-                    <p className='mt-1 italic text-[#6E7191]'>{card.poetic}</p>
-                    <p className='mt-4 text-[#6E7191]'>{card.description}</p>
+                    <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>
+                      {localizedServices[index]?.title ?? card.title}
+                    </h3>
+                    <p className='mt-1 italic text-[#6E7191]'>
+                      {localizedServices[index]?.poetic ?? card.poetic}
+                    </p>
+                    <p className='mt-4 text-[#6E7191]'>
+                      {localizedServices[index]?.description ?? card.description}
+                    </p>
                     <span className='mt-5 inline-flex rounded-full border border-[#B06EFF33] px-3 py-1 text-xs text-[#B06EFF]'>
-                      {card.tag}
+                      {localizedServices[index]?.tag ?? card.tag}
                     </span>
                   </motion.article>
                 ))}
@@ -638,10 +693,10 @@ const Index = () => {
           >
             <div className='mx-auto grid max-w-7xl gap-6 md:grid-cols-4'>
               {[
-                { n: 50, label: 'Projects' },
-                { n: 30, label: 'Clients' },
-                { n: 15, label: 'Experts' },
-                { n: 98, label: 'Retention', suffix: '%' },
+                { n: 50, label: t('stats.projects', 'Projects') },
+                { n: 30, label: t('stats.clients', 'Clients') },
+                { n: 15, label: t('stats.experts', 'Experts') },
+                { n: 98, label: t('stats.retention', 'Retention'), suffix: '%' },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -665,7 +720,11 @@ const Index = () => {
 
           <Section className='section-process px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-7xl'>
-              <SectionHeader lead='How We' accent='Work' poetic='Structured. Human. Relentless.' />
+              <SectionHeader
+                lead={t('process.lead')}
+                accent={t('process.accent')}
+                poetic={t('process.poetic')}
+              />
               <div className='relative mt-12 grid gap-6 md:grid-cols-4'>
                 {processSteps.map((step, index) => (
                   <motion.article
@@ -677,8 +736,12 @@ const Index = () => {
                     className='process-card'
                   >
                     <div className='process-dot'>{step.step}</div>
-                    <h3 className='mt-4 text-lg font-semibold text-[#F5F5F7]'>{step.title}</h3>
-                    <p className='mt-2 text-sm text-[#6E7191]'>{step.text}</p>
+                    <h3 className='mt-4 text-lg font-semibold text-[#F5F5F7]'>
+                      {localizedProcess[index]?.title ?? step.title}
+                    </h3>
+                    <p className='mt-2 text-sm text-[#6E7191]'>
+                      {localizedProcess[index]?.text ?? step.text}
+                    </p>
                   </motion.article>
                 ))}
               </div>
@@ -687,7 +750,11 @@ const Index = () => {
 
           <Section id='work' className='section-portfolio px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-7xl'>
-              <SectionHeader lead='Our' accent='Work' poetic='Built to outlast trends.' />
+              <SectionHeader
+                lead={t('work.lead')}
+                accent={t('work.accent')}
+                poetic={t('work.poetic')}
+              />
 
               <div
                 ref={portfolioRef}
@@ -716,7 +783,7 @@ const Index = () => {
                         className='mt-5 inline-flex items-center gap-2 text-[#F5F5F7]'
                         data-cursor-hover='true'
                       >
-                        View Project <ArrowRight className='h-4 w-4' />
+                        {t('work.viewProject')} <ArrowRight className='h-4 w-4' />
                       </button>
                     </div>
                   </article>
@@ -741,9 +808,9 @@ const Index = () => {
           <Section className='section-tech px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-7xl'>
               <SectionHeader
-                lead='Technologies We'
-                accent='Master'
-                poetic='The tools that power our craft.'
+                lead={t('tech.lead')}
+                accent={t('tech.accent')}
+                poetic={t('tech.poetic')}
               />
               <div className='mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5'>
                 {techStack.map((tech, index) => (
@@ -764,46 +831,12 @@ const Index = () => {
             </div>
           </Section>
 
-          <Section id='about' className='section-why px-6 py-14 lg:px-10'>
-            <div className='mx-auto grid max-w-7xl gap-12 lg:grid-cols-2'>
-              <div>
-                <h2 className='section-title'>
-                  <HeadingReveal text='Built' /> <span className='gradient-title'>Different.</span>
-                </h2>
-                <p className='section-poetic'>Because average never changed anything.</p>
-                <p className='mt-6 max-w-xl text-[#6E7191]'>
-                  We combine product depth, visual craft, and operational discipline to ship
-                  software that performs globally and feels unmistakably human.
-                </p>
-                <div className='astronaut-card mt-8'>
-                  <Rocket className='h-8 w-8 text-[#FFD93D]' />
-                  <p className='text-[#F5F5F7]'>Global ambitions. Grounded execution.</p>
-                </div>
-              </div>
-              <div className='grid gap-4 sm:grid-cols-2'>
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={feature}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.07 }}
-                    className='feature-tile'
-                  >
-                    <Check className='h-4 w-4 text-[#FF6B6B]' />
-                    <p className='text-sm text-[#F5F5F7]'>{feature}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </Section>
-
           <Section className='section-testimonials px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-7xl'>
               <SectionHeader
-                lead='Client'
-                accent='Stories'
-                poetic="The best proof is the people we've worked with."
+                lead={t('testimonials.lead')}
+                accent={t('testimonials.accent')}
+                poetic={t('testimonials.poetic')}
               />
               <div className='testimonial-stack mt-12'>
                 {testimonials.map((item, i) => {
@@ -853,9 +886,9 @@ const Index = () => {
           <Section className='section-vision px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-7xl'>
               <SectionHeader
-                lead='Tomorrow,'
-                accent='Today.'
-                poetic="Futures we're already engineering."
+                lead={t('future.lead')}
+                accent={t('future.accent')}
+                poetic={t('future.poetic')}
               />
               <div className='mt-10 grid gap-6 md:grid-cols-3'>
                 {visionCards.map((card, index) => (
@@ -903,11 +936,14 @@ const Index = () => {
           <Section id='about' className='section-why px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-7xl'>
               <SectionHeader
-                lead='About'
-                accent='Sovertick'
-                poetic='Global AI engineering with clear purpose.'
+                lead={t('about.lead')}
+                accent={t('about.accent')}
+                poetic={t('about.poetic')}
               />
-              <div className='mt-10 grid gap-6 md:grid-cols-2'>
+              <p className='mt-6 max-w-4xl text-[#6E7191]'>
+                {t('about.intro')}
+              </p>
+              <div className='mt-10 grid gap-6 lg:grid-cols-2'>
                 <motion.article
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -917,11 +953,13 @@ const Index = () => {
                   <div className='vision-illustration'>
                     <Rocket className='h-6 w-6 text-[#FFD93D]' />
                   </div>
-                  <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>Our Mission</h3>
+                  <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>
+                    {t('about.visionTitle')}
+                  </h3>
                   <p className='mt-3 text-[#6E7191]'>
-                    Build intelligent software that helps ambitious businesses move faster, scale
-                    with confidence, and lead their industries.
+                    {t('about.visionText1')}
                   </p>
+                  <p className='mt-3 text-[#6E7191]'>{t('about.visionText2')}</p>
                 </motion.article>
                 <motion.article
                   initial={{ opacity: 0, y: 16 }}
@@ -933,12 +971,105 @@ const Index = () => {
                   <div className='vision-illustration'>
                     <Sparkles className='h-6 w-6 text-[#B06EFF]' />
                   </div>
-                  <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>Our Vision</h3>
+                  <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>{t('about.missionTitle')}</h3>
+                  <p className='mt-3 text-[#6E7191]'>{t('about.missionText1')}</p>
                   <p className='mt-3 text-[#6E7191]'>
-                    Become the most trusted global AI software partner for companies building the
-                    next decade of digital innovation.
+                    {t('about.missionText2')}
                   </p>
+                  <p className='mt-3 font-semibold text-[#F5F5F7]'>{t('about.missionText3')}</p>
                 </motion.article>
+              </div>
+
+              <div className='mt-8'>
+                <h3 className='text-xl font-semibold text-[#F5F5F7]'>{t('about.coreValuesTitle')}</h3>
+                <div className='mt-4 grid gap-4 md:grid-cols-3'>
+                  {coreValues.map((item, index) => (
+                    <motion.article
+                      key={item.title}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.06 }}
+                      className='feature-tile'
+                    >
+                      <Check className='h-4 w-4 text-[#FF6B6B]' />
+                      <div>
+                        <p className='text-sm font-semibold text-[#F5F5F7]'>{item.title}</p>
+                        <p className='mt-1 text-xs text-[#6E7191]'>{item.text}</p>
+                      </div>
+                    </motion.article>
+                  ))}
+                </div>
+              </div>
+
+              <div className='mt-8'>
+                <h3 className='text-xl font-semibold text-[#F5F5F7]'>{t('about.beliefsTitle')}</h3>
+                <div className='mt-4 grid gap-3'>
+                  {beliefs.map((belief, index) => (
+                    <motion.div
+                      key={belief}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.04 }}
+                      className='feature-tile'
+                    >
+                      <span className='inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#B06EFF66] text-[11px] font-semibold text-[#B06EFF]'>
+                        {index + 1}
+                      </span>
+                      <p className='text-sm text-[#F5F5F7]'>{belief}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Section>
+
+          <Section id='faq' className='section-contact px-6 py-10 lg:px-10'>
+            <div className='mx-auto max-w-5xl'>
+              <SectionHeader
+                lead={t('faq.lead')}
+                accent={t('faq.accent')}
+                poetic={t('faq.poetic')}
+              />
+              <div className='mt-6 grid gap-3'>
+                {faqItems.map((faq, index) => (
+                  <motion.article
+                    key={faq.question}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className='vision-card p-0'
+                  >
+                    <button
+                      type='button'
+                      onClick={() =>
+                        setActiveFaqIndex(prev => (prev === index ? null : index))
+                      }
+                      className='flex w-full items-center justify-between gap-4 px-5 py-4 text-left'
+                    >
+                      <h3 className='text-base font-semibold text-[#F5F5F7]'>{faq.question}</h3>
+                      <ChevronDown
+                        className={`h-4 w-4 text-[#B06EFF] transition-transform ${
+                          activeFaqIndex === index ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {activeFaqIndex === index && (
+                        <motion.p
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className='overflow-hidden px-5 pb-4 text-sm text-[#6E7191]'
+                        >
+                          {faq.answer}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </motion.article>
+                ))}
               </div>
             </div>
           </Section>
@@ -946,26 +1077,27 @@ const Index = () => {
           <Section id='contact' className='section-contact px-6 py-14 lg:px-10'>
             <div className='mx-auto max-w-4xl rounded-3xl border border-[#B06EFF44] bg-[#ffffff06] p-8 backdrop-blur-xl'>
               <h2 className='section-title text-center'>
-                <HeadingReveal text="Let's Talk." />
+                <HeadingReveal text={t('contact.lead')} />
               </h2>
               <p className='section-poetic text-center'>
-                Tell us what you're building and we'll make it real.
+                {t('contact.poetic')}
               </p>
               <form className='mt-8 grid gap-4 md:grid-cols-2' onSubmit={onSubmit}>
-                <input className='input-premium' placeholder='Name' required />
-                <input className='input-premium' type='email' placeholder='Email' required />
+                <input className='input-premium' placeholder={t('contact.name')} required />
+                <input className='input-premium' type='email' placeholder={t('contact.email')} required />
                 <select className='input-premium md:col-span-2' required defaultValue=''>
                   <option value='' disabled>
-                    Service Needed
+                    {t('contact.serviceNeeded')}
                   </option>
-                  <option>Web Development</option>
-                  <option>Mobile Applications</option>
-                  <option>AI & Machine Learning</option>
-                  <option>Cloud & DevOps</option>
+                  {(localizedServices.length ? localizedServices : serviceCards)
+                    .slice(0, 4)
+                    .map(item => (
+                    <option key={item.title}>{item.title}</option>
+                  ))}
                 </select>
                 <textarea
                   className='input-premium min-h-32 md:col-span-2'
-                  placeholder='Message' 
+                  placeholder={t('contact.message')}
                   required
                 />
                 <button
@@ -973,7 +1105,7 @@ const Index = () => {
                   className='cta-main md:col-span-2 inline-flex items-center justify-center gap-2 rounded-full py-3'
                   data-cursor-hover='true'
                 >
-                  {sending ? 'Sending...' : 'Submit'}
+                  {sending ? t('contact.sending') : t('contact.submit')}
                   <ArrowRight className='h-4 w-4' />
                 </button>
                 <AnimatePresence>
@@ -984,7 +1116,7 @@ const Index = () => {
                       exit={{ opacity: 0 }}
                       className='md:col-span-2 rounded-xl border border-[#FF6B6B55] bg-[#FF6B6B22] px-4 py-3 text-center text-sm text-[#F5F5F7]'
                     >
-                      Message sent. The Sovertick team will reach out shortly.
+                      {t('contact.sent')}
                     </motion.p>
                   )}
                 </AnimatePresence>
@@ -1012,7 +1144,7 @@ const Index = () => {
               >
                 <div className='flex items-start justify-between gap-4'>
                   <div>
-                    <p className='text-xs tracking-[0.18em] text-[#6E7191]'>PROJECT OVERVIEW</p>
+                    <p className='text-xs tracking-[0.18em] text-[#6E7191]'>{t('modal.overview')}</p>
                     <h3 className='mt-2 text-2xl font-semibold text-[#F5F5F7]'>
                       {activeProject.name}
                     </h3>
@@ -1043,14 +1175,14 @@ const Index = () => {
                     onClick={() => setActiveProject(null)}
                     className='cta-main inline-flex items-center gap-2 rounded-full px-5 py-2.5'
                   >
-                    Start Similar Project <ArrowRight className='h-4 w-4' />
+                    {t('modal.start')} <ArrowRight className='h-4 w-4' />
                   </a>
                   <button
                     type='button'
                     onClick={() => setActiveProject(null)}
                     className='cta-ghost inline-flex items-center rounded-full px-5 py-2.5'
                   >
-                    Close
+                    {t('modal.close')}
                   </button>
                 </div>
               </motion.div>
@@ -1064,29 +1196,29 @@ const Index = () => {
             <div className='md:col-span-2'>
               <img src='/branding/sovertick-logo.svg' alt='Sovertick' className='brand-logo-footer' />
               <p className='mt-3 max-w-xs text-[#6E7191]'>
-                Engineering tomorrow. Delivering today.
+                {t('footer.tagline')}
               </p>
             </div>
             <div>
-              <p className='footer-head'>Company</p>
+              <p className='footer-head'>{t('footer.company')}</p>
               <a className='footer-link' href='#about' data-cursor-hover='true'>
-                About
+                {t('footer.about')}
               </a>
               <a className='footer-link' href='#careers' data-cursor-hover='true'>
                 Careers
               </a>
               <a className='footer-link' href='#contact' data-cursor-hover='true'>
-                Contact
+                {t('footer.contact')}
               </a>
             </div>
             <div>
-              <p className='footer-head'>Services</p>
-              <p className='footer-link'>Web Development</p>
-              <p className='footer-link'>AI Solutions</p>
-              <p className='footer-link'>Cloud & DevOps</p>
+              <p className='footer-head'>{t('footer.services')}</p>
+              <p className='footer-link'>{t('footer.web')}</p>
+              <p className='footer-link'>{t('footer.ai')}</p>
+              <p className='footer-link'>{t('footer.cloud')}</p>
             </div>
             <div>
-              <p className='footer-head'>Connect</p>
+              <p className='footer-head'>{t('footer.connect')}</p>
               <div className='mt-3 flex gap-2'>
                 {[Linkedin, Github, Twitter, Instagram, Globe, Figma, Cloud].map((Icon, i) => (
                   <a key={i} href='#' className='social-icon' data-cursor-hover='true'>
@@ -1097,7 +1229,7 @@ const Index = () => {
             </div>
           </div>
           <p className='mx-auto mt-10 max-w-7xl border-t border-[#ffffff12] pt-6 text-sm text-[#6E7191]'>
-            © 2026 Sovertick Technologies. All Rights Reserved. | Privacy | Terms
+            {t('footer.rights')}
           </p>
         </footer>
       </motion.div>
