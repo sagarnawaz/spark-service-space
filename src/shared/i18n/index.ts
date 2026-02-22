@@ -38,24 +38,37 @@ const resources = {
           { title: 'QA Testing Services', poetic: 'Ship with Confidence', description: 'Detailed quality assurance and testing to ensure your product is bug-free, reliable, and ready to launch.', tag: 'QA · Testing' },
         ],
       },
+      process: {
+        lead: 'Our',
+        accent: 'Process',
+        poetic: 'A clear path from idea to impact.',
+        items: [
+          { title: 'Discover', text: 'Research, interviews, and strategic framing.' },
+          { title: 'Design', text: 'Narrative UX, systems thinking, and prototyping.' },
+          { title: 'Develop', text: 'Reliable engineering with measurable velocity.' },
+          { title: 'Deploy', text: 'Secure release, observability, and ongoing scale.' },
+        ],
+      },
       work: { lead: 'Our', accent: 'Work', poetic: 'Built to outlast trends.', viewProject: 'View Project' },
       tech: { lead: 'Technologies We', accent: 'Master', poetic: 'The tools that power our craft.' },
       about: {
-        lead: 'Our',
-        accent: 'Psychology',
-        poetic: 'Innovation with Intent. Growth with Discipline. Execution with Excellence.',
+        lead: 'Why Choose',
+        accent: 'Sovertick',
+        poetic: 'Because execution matters more than promises.',
         intro:
-          'At Sovertick, we believe leadership in technology requires continuous evolution. We operate with a mindset of strategic reinvention - constantly upgrading our capabilities, investing in emerging technologies, and strengthening specialized expertise to solve real business challenges.',
+          'At Sovertick we focus on outcomes, ownership, and transparent collaboration at every stage of product delivery.',
         visionTitle: 'Our Vision',
         visionText1:
           'We envision a world where technology removes limitations, not creates them. Our vision is to become a global catalyst for digital transformation by building intelligent platforms, ethical AI systems, and performance-driven digital ecosystems.',
-        visionText2: "We don't just adapt to change. We architect it",
+        visionText2: "We don't just adapt to change. We architect it.",
         missionTitle: 'Our Mission',
         missionText1:
-          'To architect powerful digital ecosystems that give businesses a competitive advantage.Our mission is to create solutions that accelerate growth, increase operational efficiency, strengthen market positioning, and deliver sustainable long-term value.',
+          'To architect powerful digital ecosystems that give businesses a competitive advantage. Our mission is to create solutions that accelerate growth, increase operational efficiency, strengthen market positioning, and deliver sustainable long-term value.',
         missionText2: 'Build smarter. Scale faster. Lead stronger.',
         coreValuesTitle: 'Our Core Values',
         beliefsTitle: 'Our Beliefs',
+        finalCtaTitle: "Have an idea? Let's turn it into a scalable digital product.",
+        finalCtaText: 'Start your project with Sovertick today.',
       },
       testimonials: { lead: 'Client', accent: 'Stories', poetic: "The best proof is the people we've worked with." },
       future: { lead: 'Tomorrow,', accent: 'Today.', poetic: "Futures we're already engineering." },
@@ -112,3 +125,4 @@ i18n.use(LanguageDetector).use(initReactI18next).init({
 })
 
 export default i18n
+

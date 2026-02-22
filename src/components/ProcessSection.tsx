@@ -8,6 +8,10 @@ type LocalizedProcess = { title: string; text: string }
 
 const ProcessSection = () => {
   const { t } = useTranslation()
+  const safeT = (key: string, fallback: string) => {
+    const value = t(key)
+    return value === key ? fallback : value
+  }
 
   const localizedProcess = useMemo(() => {
     const value = t('process.items', { returnObjects: true })
@@ -18,9 +22,9 @@ const ProcessSection = () => {
     <Section className='section-process px-6 py-14 lg:px-10'>
       <div className='mx-auto max-w-7xl'>
         <SectionHeader
-          lead={t('process.lead')}
-          accent={t('process.accent')}
-          poetic={t('process.poetic')}
+          lead={safeT('process.lead', 'Our')}
+          accent={safeT('process.accent', 'Process')}
+          poetic={safeT('process.poetic', 'A clear path from idea to impact.')}
         />
         <div className='relative mt-12 grid gap-6 md:grid-cols-4'>
           {processSteps.map((step, index) => (

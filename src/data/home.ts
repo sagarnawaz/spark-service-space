@@ -29,7 +29,6 @@ export const serviceCards = [
   { title: 'E-Commerce Solutions', poetic: 'Sell Smarter, Faster', description: 'Optimized online stores that convert visitors into loyal customers.', tag: 'Ecommerce', icon: ShoppingCart, className: '' },
   { title: 'Digital Marketing', poetic: 'Growth Through Strategy', description: 'Data-driven campaigns that boost visibility, engagement, and ROI.', tag: 'Marketing', icon: Megaphone, className: '' },
   { title: 'Social Media Marketing & Strategy', poetic: 'Your Brand, Everywhere', description: 'Targeted campaigns and strategies to expand your reach and influence.', tag: 'Social Strategy', icon: Sparkles, className: '' },
-  { title: 'Content Creation & Graphic Designing', poetic: 'Creativity That Converts', description: 'Compelling content and visuals crafted to capture attention and drive results.', tag: 'Content + Design', icon: PenTool, className: '' },
 ]
 
 export const portfolio = [

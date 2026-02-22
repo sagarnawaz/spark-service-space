@@ -758,6 +758,55 @@
     position: relative;
   }
 
+  .footer-shell {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.1rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(8px);
+  }
+
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.35rem 0.35rem 1rem;
+  }
+
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    padding: 0.62rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #f5f5f7;
+    background: linear-gradient(135deg, #b06eff, #ff6b6b);
+    white-space: nowrap;
+    transition: transform 0.2s ease;
+  }
+
+  .footer-cta:hover {
+    transform: translateY(-2px);
+  }
+
+  .footer-grid {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-panel {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.95rem;
+    padding: 0.9rem;
+    background: rgba(255, 255, 255, 0.02);
+    min-height: 100%;
+  }
+
   .footer-line {
     position: absolute;
     top: 0;
@@ -800,6 +849,18 @@
     transform: translateY(-2px);
     box-shadow: 0 0 16px rgba(255, 107, 107, 0.35);
     border-color: rgba(255, 107, 107, 0.55);
+  }
+
+  .footer-bottom {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 0.9rem;
+    font-size: 0.875rem;
+    color: #6e7191;
   }
 
   .whatsapp-float {
@@ -1002,14 +1063,34 @@
     display: none;
   }
 
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .whatsapp-float span {
     display: none;
   }
 }
 
 @media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+
   .whatsapp-float span {
     display: inline;
+  }
+}
+
+@media (min-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 

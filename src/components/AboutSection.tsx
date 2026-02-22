@@ -44,7 +44,6 @@ const AboutSection = () => {
             <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>{t('about.missionTitle')}</h3>
             <p className='mt-3 text-[#6E7191]'>{t('about.missionText1')}</p>
             <p className='mt-3 text-[#6E7191]'>{t('about.missionText2')}</p>
-            <p className='mt-3 font-semibold text-[#F5F5F7]'>{t('about.missionText3')}</p>
           </motion.article>
         </div>
 
