@@ -6,7 +6,7 @@ import {
   type VisitorContextType,
   type VisitorProfile,
   VISIT_KEY,
-} from "@/mvc/models/visitor-profile.model";
+} from "@/lib/visitor-profile.model";
 
 const VisitorContext = createContext<VisitorContextType>({
   profile: defaultVisitorProfile,

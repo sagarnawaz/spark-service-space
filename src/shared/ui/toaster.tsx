@@ -1,4 +1,4 @@
-import { useToast } from "@/mvc/controllers/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from "@/shared/ui/toast";
 
 export function Toaster() {
