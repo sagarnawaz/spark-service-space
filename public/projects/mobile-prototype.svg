@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="Sovertick mobile app prototypes in smartphone frames">
+  <defs>
+    <linearGradient id="bgM" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="100%" stop-color="#18213A"/>
+    </linearGradient>
+    <linearGradient id="brandM" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#B06EFF"/>
+      <stop offset="100%" stop-color="#FF6B6B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bgM)"/>
+  <circle cx="300" cy="190" r="210" fill="#B06EFF20"/>
+  <circle cx="1340" cy="820" r="230" fill="#FF6B6B1D"/>
+
+  <rect x="220" y="210" width="340" height="620" rx="48" fill="#090E1C" stroke="#FFFFFF25" stroke-width="2"/>
+  <rect x="244" y="246" width="292" height="546" rx="36" fill="#111730"/>
+  <rect x="346" y="258" width="88" height="8" rx="4" fill="#FFFFFF3A"/>
+  <rect x="266" y="300" width="248" height="138" rx="20" fill="#FFFFFF0F"/>
+  <rect x="286" y="326" width="122" height="10" rx="5" fill="#FFFFFF2C"/>
+  <rect x="286" y="352" width="84" height="8" rx="4" fill="#FFFFFF1A"/>
+  <rect x="266" y="460" width="248" height="94" rx="18" fill="url(#brandM)" opacity="0.24"/>
+  <rect x="266" y="574" width="116" height="198" rx="18" fill="#FFFFFF0F"/>
+  <rect x="398" y="574" width="116" height="198" rx="18" fill="#FFFFFF0C"/>
+
+  <rect x="640" y="150" width="320" height="700" rx="52" fill="#080D1B" stroke="#FFFFFF26" stroke-width="2"/>
+  <rect x="662" y="186" width="276" height="628" rx="38" fill="#0F1630"/>
+  <rect x="754" y="198" width="92" height="8" rx="4" fill="#FFFFFF38"/>
+  <rect x="684" y="236" width="232" height="166" rx="20" fill="url(#brandM)" opacity="0.26"/>
+  <rect x="706" y="266" width="134" height="10" rx="5" fill="#FFFFFF31"/>
+  <rect x="706" y="292" width="108" height="8" rx="4" fill="#FFFFFF1B"/>
+  <rect x="684" y="430" width="232" height="120" rx="18" fill="#FFFFFF11"/>
+  <rect x="706" y="456" width="146" height="9" rx="5" fill="#FFFFFF24"/>
+  <rect x="706" y="482" width="112" height="8" rx="4" fill="#FFFFFF18"/>
+  <rect x="684" y="574" width="232" height="220" rx="18" fill="#FFFFFF0E"/>
+  <rect x="706" y="606" width="190" height="74" rx="12" fill="#FFFFFF0D"/>
+  <rect x="706" y="694" width="140" height="12" rx="6" fill="#FFFFFF20"/>
+
+  <rect x="1030" y="230" width="330" height="600" rx="50" fill="#090E1C" stroke="#FFFFFF22" stroke-width="2"/>
+  <rect x="1052" y="264" width="286" height="528" rx="34" fill="#111730"/>
+  <rect x="1150" y="276" width="90" height="8" rx="4" fill="#FFFFFF36"/>
+  <rect x="1072" y="316" width="246" height="120" rx="18" fill="#FFFFFF0F"/>
+  <rect x="1092" y="344" width="132" height="10" rx="5" fill="#FFFFFF2A"/>
+  <rect x="1092" y="370" width="96" height="8" rx="4" fill="#FFFFFF1A"/>
+  <rect x="1072" y="456" width="246" height="154" rx="18" fill="#FFFFFF0D"/>
+  <rect x="1092" y="486" width="204" height="18" rx="9" fill="#FFFFFF16"/>
+  <rect x="1092" y="516" width="174" height="14" rx="7" fill="#FFFFFF12"/>
+  <rect x="1092" y="548" width="194" height="14" rx="7" fill="#FFFFFF12"/>
+  <rect x="1072" y="632" width="246" height="138" rx="18" fill="url(#brandM)" opacity="0.22"/>
+</svg>
