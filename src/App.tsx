@@ -3,9 +3,9 @@ import { Toaster as Sonner } from "@/shared/ui/sonner";
 import { TooltipProvider } from "@/shared/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "@/mvc/views/pages/Index";
-import NotFound from "@/mvc/views/pages/NotFound";
-import { VisitorProvider } from "@/mvc/controllers/hooks/use-visitor-profile";
+import Index from "@/pages/Index";
+import NotFound from "@/pages/NotFound";
+import { VisitorProvider } from "@/hooks/use-visitor-profile";
 
 const queryClient = new QueryClient();
 
@@ -18,7 +18,6 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
