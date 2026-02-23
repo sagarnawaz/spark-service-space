@@ -8,7 +8,7 @@ const VisionSection = () => {
   const { t } = useTranslation()
 
   return (
-    <Section className='section-vision px-6 py-14 lg:px-10'>
+    <Section className='section-vision px-4 py-14 sm:px-6 lg:px-10'>
       <div className='mx-auto max-w-7xl'>
         <SectionHeader
           lead={t('future.lead')}

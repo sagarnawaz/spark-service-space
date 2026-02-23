@@ -31,17 +31,14 @@ const Footer = () => {
   ]
 
   return (
-    <footer className='relative overflow-hidden bg-[#030305] px-6 pt-20 pb-8 lg:px-10'>
-      {/* Top gradient line */}
+    <footer className='relative overflow-hidden bg-[#030305] px-4 pb-8 pt-20 sm:px-6 lg:px-10'>
       <div className='absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent' />
 
-      {/* Background glow */}
       <div className='pointer-events-none absolute left-1/2 top-0 -translate-x-1/2'>
         <div className='h-[400px] w-[600px] rounded-full bg-primary/5 blur-[120px]' />
       </div>
 
       <div className='relative mx-auto max-w-7xl'>
-        {/* CTA Banner */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +57,7 @@ const Footer = () => {
             </div>
             <a
               href='#contact'
-              className='cta-main inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold whitespace-nowrap'
+              className='cta-main inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold sm:whitespace-nowrap'
               data-cursor-hover='true'
             >
               Start a Project <ArrowRight className='h-4 w-4' />
@@ -68,9 +65,7 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Main Grid */}
         <div className='grid gap-12 border-b border-white/[0.06] pb-12 sm:grid-cols-2 lg:grid-cols-12'>
-          {/* Brand Column */}
           <div className='lg:col-span-4'>
             <img
               src='/branding/sovertick-logo.svg'
@@ -95,7 +90,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Company Links */}
           <div className='lg:col-span-2'>
             <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
               {t('footer.company')}
@@ -115,7 +109,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div className='lg:col-span-3'>
             <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
               {t('footer.services')}
@@ -131,7 +124,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div className='lg:col-span-3'>
             <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
               Get in Touch
@@ -171,12 +163,9 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className='flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row'>
-          <p className='text-xs text-muted-foreground'>
-            © {currentYear} Sovertick. All rights reserved.
-          </p>
-          <div className='flex gap-6'>
+          <p className='text-xs text-muted-foreground'>(c) {currentYear} Sovertick. All rights reserved.</p>
+          <div className='flex flex-wrap items-center justify-center gap-4 sm:justify-end sm:gap-6'>
             <a href='#' className='text-xs text-muted-foreground transition-colors hover:text-foreground' data-cursor-hover='true'>
               Privacy Policy
             </a>

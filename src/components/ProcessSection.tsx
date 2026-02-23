@@ -19,7 +19,7 @@ const ProcessSection = () => {
   }, [t])
 
   return (
-    <Section className='section-process px-6 py-14 lg:px-10'>
+    <Section className='section-process px-4 py-14 sm:px-6 lg:px-10'>
       <div className='mx-auto max-w-7xl'>
         <SectionHeader
           lead={safeT('process.lead', 'Our')}

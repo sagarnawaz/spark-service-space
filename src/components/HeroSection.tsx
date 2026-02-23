@@ -1,17 +1,14 @@
-import { Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Section, MagneticButton } from '@/lib/animation-helpers'
 
-const Hero3DScene = lazy(() => import('./Hero3DScene'))
-
 const HeroSection = () => {
   const { t } = useTranslation()
 
   return (
-    <Section id='home' className='section-hero px-6 pb-12 pt-14 lg:px-10 lg:pt-16'>
-      <div className='mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-10'>
+    <Section id='home' className='section-hero px-4 pb-12 pt-14 sm:px-6 lg:px-10 lg:pt-16'>
+      <div className='mx-auto max-w-7xl'>
         <div>
           <motion.p
             initial={{ opacity: 0, scale: 0.8 }}
@@ -51,35 +48,23 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 16, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.8 }}
-            className='mt-8 flex flex-col gap-3 sm:flex-row sm:flex-nowrap sm:items-center'
+            className='mt-8 flex flex-col gap-3 sm:flex-row sm:items-center'
           >
             <MagneticButton
               href='#work'
-              className='cta-main pulse-ring inline-flex items-center gap-2 rounded-full px-6 py-3 whitespace-nowrap'
+              className='cta-main pulse-ring inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 sm:whitespace-nowrap'
             >
               {t('hero.ctaWork')} <ArrowRight className='h-4 w-4' />
             </MagneticButton>
             <MagneticButton
               href='#about'
-              className='cta-ghost inline-flex items-center gap-2 rounded-full px-6 py-3 whitespace-nowrap'
+              className='cta-ghost inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 sm:whitespace-nowrap'
             >
               {t('hero.ctaStory')}
             </MagneticButton>
           </motion.div>
         </div>
 
-        <motion.div
-          className='hero-visual-wrap mx-auto w-full max-w-[560px]'
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          <div className='hero-orb-left' />
-          <div className='hero-orb-right' />
-          <Suspense fallback={<div className='h-[320px]' />}>
-            <Hero3DScene />
-          </Suspense>
-        </motion.div>
       </div>
       <motion.a
         href='#services'

@@ -1,0 +1,140 @@
+<svg width="3840" height="2160" viewBox="0 0 3840 2160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="420" y1="160" x2="3200" y2="1980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A1022"/>
+      <stop offset="1" stop-color="#090814"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(2480 760) rotate(121) scale(920 1140)">
+      <stop stop-color="#3A8BFF" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#3A8BFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowPurple" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1400 1380) rotate(40) scale(980 1240)">
+      <stop stop-color="#B06EFF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#B06EFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelStroke" x1="760" y1="480" x2="3120" y2="1680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FF"/>
+      <stop offset="1" stop-color="#C084FC"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="1160" y1="1090" x2="2630" y2="1090" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4BA6FF"/>
+      <stop offset="1" stop-color="#B06EFF"/>
+    </linearGradient>
+    <linearGradient id="avatarGrad" x1="1710" y1="690" x2="2090" y2="1560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7BD1FF"/>
+      <stop offset="1" stop-color="#A17DFF"/>
+    </linearGradient>
+    <filter id="softBlur" x="-300" y="-300" width="4440" height="2760" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="80"/>
+    </filter>
+    <filter id="drop" x="0" y="0" width="3840" height="2160" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+
+  <rect width="3840" height="2160" fill="url(#bgGrad)"/>
+  <rect width="3840" height="2160" fill="url(#glowBlue)"/>
+  <rect width="3840" height="2160" fill="url(#glowPurple)"/>
+
+  <g opacity="0.2">
+    <path d="M320 460H3520" stroke="#7388C7" stroke-width="2"/>
+    <path d="M320 760H3520" stroke="#7388C7" stroke-width="2"/>
+    <path d="M320 1060H3520" stroke="#7388C7" stroke-width="2"/>
+    <path d="M320 1360H3520" stroke="#7388C7" stroke-width="2"/>
+    <path d="M320 1660H3520" stroke="#7388C7" stroke-width="2"/>
+    <path d="M760 280V1880" stroke="#7388C7" stroke-width="2"/>
+    <path d="M1260 280V1880" stroke="#7388C7" stroke-width="2"/>
+    <path d="M1760 280V1880" stroke="#7388C7" stroke-width="2"/>
+    <path d="M2260 280V1880" stroke="#7388C7" stroke-width="2"/>
+    <path d="M2760 280V1880" stroke="#7388C7" stroke-width="2"/>
+    <path d="M3260 280V1880" stroke="#7388C7" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#drop)">
+    <rect x="760" y="420" width="1200" height="720" rx="40" fill="rgba(255,255,255,0.06)"/>
+    <rect x="760.5" y="420.5" width="1199" height="719" rx="39.5" stroke="url(#panelStroke)" stroke-opacity="0.45"/>
+
+    <rect x="1860" y="560" width="1240" height="760" rx="42" fill="rgba(255,255,255,0.05)"/>
+    <rect x="1860.5" y="560.5" width="1239" height="759" rx="41.5" stroke="url(#panelStroke)" stroke-opacity="0.45"/>
+
+    <rect x="1030" y="1260" width="1280" height="620" rx="42" fill="rgba(255,255,255,0.05)"/>
+    <rect x="1030.5" y="1260.5" width="1279" height="619" rx="41.5" stroke="url(#panelStroke)" stroke-opacity="0.45"/>
+  </g>
+
+  <g>
+    <rect x="820" y="520" width="1070" height="120" rx="22" fill="rgba(255,255,255,0.08)"/>
+    <rect x="860" y="565" width="280" height="28" rx="14" fill="url(#accent)"/>
+    <rect x="1180" y="565" width="180" height="28" rx="14" fill="#2D3B6D"/>
+    <rect x="1380" y="565" width="180" height="28" rx="14" fill="#2D3B6D"/>
+    <rect x="1580" y="565" width="260" height="28" rx="14" fill="#2D3B6D"/>
+
+    <rect x="820" y="680" width="500" height="400" rx="26" fill="rgba(255,255,255,0.06)"/>
+    <path d="M860 980L960 900L1060 940L1180 820L1280 860" stroke="#63B2FF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="960" cy="900" r="14" fill="#A17DFF"/>
+    <circle cx="1180" cy="820" r="14" fill="#A17DFF"/>
+
+    <rect x="1360" y="680" width="530" height="400" rx="26" fill="rgba(255,255,255,0.06)"/>
+    <rect x="1410" y="760" width="70" height="260" rx="12" fill="#4BA6FF"/>
+    <rect x="1510" y="840" width="70" height="180" rx="12" fill="#5C9EFF"/>
+    <rect x="1610" y="700" width="70" height="320" rx="12" fill="#7A90FF"/>
+    <rect x="1710" y="790" width="70" height="230" rx="12" fill="#9B83FF"/>
+    <rect x="1810" y="730" width="70" height="290" rx="12" fill="#B06EFF"/>
+  </g>
+
+  <g>
+    <rect x="1940" y="670" width="1070" height="570" rx="28" fill="rgba(255,255,255,0.07)"/>
+    <rect x="1980" y="730" width="640" height="32" rx="16" fill="url(#accent)"/>
+    <rect x="1980" y="790" width="420" height="24" rx="12" fill="#394B86"/>
+    <rect x="1980" y="840" width="560" height="24" rx="12" fill="#394B86"/>
+    <rect x="1980" y="890" width="390" height="24" rx="12" fill="#394B86"/>
+
+    <path d="M2710 905C2710 857.7 2748.7 819 2796 819H2834C2881.3 819 2920 857.7 2920 905V1100H2710V905Z" fill="#4BA6FF" fill-opacity="0.25"/>
+    <path d="M2744 1030C2744 998.8 2769.8 973 2801 973C2832.2 973 2858 998.8 2858 1030V1100H2744V1030Z" fill="#B06EFF" fill-opacity="0.46"/>
+    <path d="M2790 1100V942" stroke="#83C4FF" stroke-width="10" stroke-linecap="round"/>
+
+    <circle cx="2920" cy="720" r="18" fill="#7FBBFF"/>
+    <circle cx="2970" cy="720" r="18" fill="#A28BFF"/>
+    <circle cx="3020" cy="720" r="18" fill="#D59CFF"/>
+  </g>
+
+  <g filter="url(#drop)">
+    <ellipse cx="1930" cy="1810" rx="540" ry="80" fill="#0D1124"/>
+    <ellipse cx="1930" cy="1810" rx="420" ry="52" fill="#1E2F6A" fill-opacity="0.35"/>
+  </g>
+
+  <g>
+    <rect x="1730" y="860" width="400" height="520" rx="170" fill="url(#avatarGrad)" fill-opacity="0.2" stroke="url(#panelStroke)" stroke-opacity="0.7" stroke-width="6"/>
+    <circle cx="1930" cy="770" r="150" fill="url(#avatarGrad)" fill-opacity="0.26" stroke="url(#panelStroke)" stroke-width="6"/>
+    <circle cx="1880" cy="750" r="18" fill="#3AA1FF"/>
+    <circle cx="1980" cy="750" r="18" fill="#B06EFF"/>
+    <rect x="1868" y="808" width="124" height="12" rx="6" fill="#95C8FF"/>
+
+    <path d="M1725 1030L1520 950" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="1510" cy="944" r="32" fill="#7FBBFF"/>
+    <path d="M2140 1055L2385 930" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="2398" cy="924" r="32" fill="#B06EFF"/>
+
+    <path d="M1760 1360L1600 1600" stroke="#67B6FF" stroke-width="22" stroke-linecap="round"/>
+    <path d="M2100 1360L2240 1600" stroke="#A787FF" stroke-width="22" stroke-linecap="round"/>
+    <rect x="1560" y="1590" width="150" height="54" rx="20" fill="#4BA6FF" fill-opacity="0.45"/>
+    <rect x="2170" y="1590" width="150" height="54" rx="20" fill="#A17DFF" fill-opacity="0.45"/>
+  </g>
+
+  <g>
+    <rect x="2420" y="1220" width="880" height="520" rx="36" fill="rgba(255,255,255,0.06)"/>
+    <rect x="2420.5" y="1220.5" width="879" height="519" rx="35.5" stroke="url(#panelStroke)" stroke-opacity="0.45"/>
+    <rect x="2470" y="1280" width="360" height="28" rx="14" fill="url(#accent)"/>
+    <rect x="2470" y="1332" width="760" height="22" rx="11" fill="#3A4F8D"/>
+    <rect x="2470" y="1380" width="720" height="22" rx="11" fill="#3A4F8D"/>
+    <rect x="2470" y="1428" width="640" height="22" rx="11" fill="#3A4F8D"/>
+
+    <path d="M2470 1650C2585 1560 2700 1628 2815 1542C2910 1470 3016 1502 3128 1412" stroke="url(#accent)" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="2815" cy="1542" r="14" fill="#7AB2FF"/>
+    <circle cx="3128" cy="1412" r="14" fill="#C08EFF"/>
+  </g>
+
+  <g opacity="0.65" filter="url(#softBlur)">
+    <circle cx="1140" cy="510" r="90" fill="#4BA6FF"/>
+    <circle cx="3010" cy="1630" r="110" fill="#B06EFF"/>
+  </g>
+</svg>

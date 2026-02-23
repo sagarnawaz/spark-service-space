@@ -94,11 +94,13 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
+    overflow-x: hidden;
   }
 
   h1,
@@ -557,6 +559,7 @@
   .section-process {
     background: #080810;
     position: relative;
+    overflow: hidden;
   }
 
   .section-process::before {
@@ -1126,6 +1129,47 @@
 
   .whatsapp-float span {
     display: none;
+  }
+
+  .portfolio-overlay {
+    transform: translateY(0%);
+  }
+
+  .portfolio-card {
+    height: 400px;
+  }
+
+  .section-process::before {
+    width: 360px;
+    height: 360px;
+    right: -180px;
+    top: 80px;
+  }
+
+  .testimonial-stack {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-orb-left,
+  .hero-orb-right {
+    width: 160px;
+    height: 160px;
+    filter: blur(52px);
+  }
+
+  .portfolio-overlay {
+    padding: 1.1rem;
+  }
+
+  .portfolio-card {
+    height: 360px;
+  }
+
+  .whatsapp-float {
+    right: 12px;
+    bottom: 12px;
   }
 }
 

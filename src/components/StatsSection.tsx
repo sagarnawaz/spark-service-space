@@ -16,7 +16,7 @@ const StatsSection = () => {
   return (
     <section
       ref={statsRef as React.Ref<HTMLElement>}
-      className='section-stats px-6 py-10 lg:px-10'
+      className='section-stats px-4 py-10 sm:px-6 lg:px-10'
     >
       <div className='mx-auto grid max-w-7xl gap-6 md:grid-cols-4'>
         {stats.map((item, index) => (

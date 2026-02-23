@@ -18,7 +18,7 @@ const TestimonialsSection = () => {
   }, [])
 
   return (
-    <Section className='section-testimonials px-6 py-14 lg:px-10'>
+    <Section className='section-testimonials px-4 py-14 sm:px-6 lg:px-10'>
       <div className='mx-auto max-w-7xl'>
         <SectionHeader
           lead={t('testimonials.lead')}

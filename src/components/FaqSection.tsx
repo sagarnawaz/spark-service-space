@@ -10,7 +10,7 @@ const FaqSection = () => {
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0)
 
   return (
-    <Section id='faq' className='section-contact px-6 py-10 lg:px-10'>
+    <Section id='faq' className='section-contact px-4 py-10 sm:px-6 lg:px-10'>
       <div className='mx-auto max-w-5xl'>
         <SectionHeader
           lead={t('faq.lead')}

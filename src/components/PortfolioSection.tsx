@@ -34,7 +34,7 @@ const PortfolioSection = () => {
 
   return (
     <>
-      <Section id='work' className='section-portfolio px-6 py-20 lg:px-10'>
+      <Section id='work' className='section-portfolio px-4 py-20 sm:px-6 lg:px-10'>
         <div className='mx-auto max-w-7xl'>
           <SectionHeader
             lead={t('work.lead')}
@@ -135,14 +135,14 @@ const PortfolioSection = () => {
       <AnimatePresence>
         {activeProject && (
           <motion.div
-            className='fixed inset-0 z-[120] flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm'
+            className='fixed inset-0 z-[120] flex items-start justify-center overflow-y-auto bg-black/70 px-4 py-6 backdrop-blur-sm sm:items-center'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveProject(null)}
           >
             <motion.div
-              className='w-full max-w-2xl overflow-hidden rounded-2xl border border-primary/30 bg-card/95 shadow-[0_20px_80px_rgba(176,110,255,0.2)] backdrop-blur-xl'
+              className='max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-primary/30 bg-card/95 shadow-[0_20px_80px_rgba(176,110,255,0.2)] backdrop-blur-xl'
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.95 }}

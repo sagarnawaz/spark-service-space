@@ -28,8 +28,8 @@ const ContactSection = () => {
   }
 
   return (
-    <Section id='contact' className='section-contact px-6 py-14 lg:px-10'>
-      <div className='mx-auto max-w-4xl rounded-3xl border border-[#B06EFF44] bg-[#ffffff06] p-8 backdrop-blur-xl'>
+    <Section id='contact' className='section-contact px-4 py-14 sm:px-6 lg:px-10'>
+      <div className='mx-auto max-w-4xl rounded-3xl border border-[#B06EFF44] bg-[#ffffff06] p-5 backdrop-blur-xl sm:p-8'>
         <h2 className='section-title text-center'>
           <HeadingReveal text={t('contact.lead')} />
         </h2>
