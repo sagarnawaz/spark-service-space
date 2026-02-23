@@ -32,9 +32,9 @@ export const serviceCards = [
 ]
 
 export const portfolio = [
-  { name: 'PulseGrid Platform', tags: ['SaaS', 'Analytics', 'AI'], text: 'A real-time operations intelligence suite for enterprise teams.' },
-  { name: 'Motive Commerce', tags: ['Ecommerce', 'Cloud', 'Automation'], text: 'A composable commerce stack handling global scale and personalization.' },
-  { name: 'ArcHealth Mobile', tags: ['HealthTech', 'Security', 'Mobile'], text: 'A secure patient experience app with telehealth and smart routing.' },
+  { name: 'AtlasLearn Web Platform', tags: ['Web', 'SaaS', 'Education'], category: 'Web', text: 'A desktop-first education platform with modular pages, analytics, and conversion-focused UX.', image: '/projects/web-macbook-mockup.jpg' },
+  { name: 'SwiftCart Mobile Commerce', tags: ['App', 'Ecommerce', 'iOS/Android'], category: 'App', text: 'A mobile commerce app with frictionless checkout, personalized offers, and retention flows.', image: '/projects/mobile-iphone-mockup.jpg' },
+  { name: 'Aether AI Ops Console', tags: ['AI SaaS', 'Automation', 'Analytics'], category: 'AI SaaS', text: 'An AI operations console featuring automation orchestration, neural insights, and smart assistant panels.', image: '/projects/ai-desktop-mockup.jpg' },
 ]
 
 export const processSteps = [

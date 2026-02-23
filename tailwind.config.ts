@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Outfit", "sans-serif"],
-        body: ["Inter", "sans-serif"],
+        display: ["Gilroy", "Sora", "sans-serif"],
+        body: ["Gilroy", "Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
