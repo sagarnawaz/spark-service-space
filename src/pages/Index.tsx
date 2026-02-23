@@ -15,6 +15,7 @@ import AboutSection from '@/components/AboutSection'
 import FaqSection from '@/components/FaqSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
+import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 const Index = () => {
   const { i18n } = useTranslation()
@@ -101,6 +102,7 @@ const Index = () => {
         </main>
 
         <Footer />
+        <WhatsAppFloat />
       </motion.div>
     </div>
   )
