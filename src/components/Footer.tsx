@@ -1,16 +1,14 @@
 import { useMemo } from 'react'
-import { ArrowRight, Cloud, Figma, Github, Globe, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowRight, Github, Globe, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { serviceCards } from '@/data/home'
 
-type LocalizedService = {
-  title: string
-}
+type LocalizedService = { title: string }
 
 const Footer = () => {
   const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
-  const whatsappLink = 'https://wa.me/447510078740'
 
   const localizedServices = useMemo(() => {
     const value = t('services.items', { returnObjects: true })
@@ -25,71 +23,170 @@ const Footer = () => {
     { id: 'contact', label: t('nav.contact') },
   ]
 
+  const socialLinks = [
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Instagram, href: '#', label: 'Instagram' },
+  ]
+
   return (
-    <footer className='section-footer px-6 pb-8 pt-10 lg:px-10'>
-      <div className='footer-line' />
-      <div className='footer-shell mx-auto max-w-7xl'>
-        <div className='footer-top'>
-          <div>
-            <img src='/branding/sovertick-logo.svg' alt='Sovertick' className='brand-logo-footer' />
-            <p className='mt-3 max-w-md text-[#6E7191]'>{t('footer.tagline')}</p>
-          </div>
-          <a href='#contact' className='footer-cta' data-cursor-hover='true'>
-            Start a Project <ArrowRight className='h-4 w-4' />
-          </a>
-        </div>
+    <footer className='relative overflow-hidden bg-[#030305] px-6 pt-20 pb-8 lg:px-10'>
+      {/* Top gradient line */}
+      <div className='absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent' />
 
-        <div className='footer-grid'>
-          <div className='footer-panel'>
-            <p className='footer-head'>{t('footer.company')}</p>
-            {companyLinks.map(link => (
-              <a key={link.id} className='footer-link' href={`#${link.id}`} data-cursor-hover='true'>
-                {link.label}
-              </a>
-            ))}
-          </div>
+      {/* Background glow */}
+      <div className='pointer-events-none absolute left-1/2 top-0 -translate-x-1/2'>
+        <div className='h-[400px] w-[600px] rounded-full bg-primary/5 blur-[120px]' />
+      </div>
 
-          <div className='footer-panel'>
-            <p className='footer-head'>{t('footer.services')}</p>
-            {(localizedServices.length ? localizedServices : serviceCards).slice(0, 4).map(item => (
-              <p key={item.title} className='footer-link'>
-                {item.title}
+      <div className='relative mx-auto max-w-7xl'>
+        {/* CTA Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className='mb-16 rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 backdrop-blur-xl sm:p-12'
+        >
+          <div className='flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center'>
+            <div>
+              <h3 className='text-2xl font-bold text-foreground sm:text-3xl'>
+                Ready to build{' '}
+                <span className='gradient-title'>something great?</span>
+              </h3>
+              <p className='mt-2 max-w-md text-muted-foreground'>
+                Let's turn your vision into a digital product that users love.
               </p>
-            ))}
-          </div>
-
-          <div className='footer-panel'>
-            <p className='footer-head'>Contact</p>
-            <a className='footer-link' href='mailto:hello@sovertick.com' data-cursor-hover='true'>
-              hello@sovertick.com
-            </a>
+            </div>
             <a
-              className='footer-link'
-              href={whatsappLink}
-              target='_blank'
-              rel='noopener noreferrer'
+              href='#contact'
+              className='cta-main inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold whitespace-nowrap'
               data-cursor-hover='true'
             >
-              WhatsApp Support
+              Start a Project <ArrowRight className='h-4 w-4' />
             </a>
-            <p className='footer-link'>Remote-first global delivery</p>
           </div>
+        </motion.div>
 
-          <div className='footer-panel'>
-            <p className='footer-head'>{t('footer.connect')}</p>
-            <div className='mt-3 flex flex-wrap gap-2'>
-              {[Linkedin, Github, Twitter, Instagram, Globe, Figma, Cloud].map((Icon, i) => (
-                <a key={i} href='#' className='social-icon' data-cursor-hover='true'>
+        {/* Main Grid */}
+        <div className='grid gap-12 border-b border-white/[0.06] pb-12 sm:grid-cols-2 lg:grid-cols-12'>
+          {/* Brand Column */}
+          <div className='lg:col-span-4'>
+            <img
+              src='/branding/sovertick-logo.svg'
+              alt='Sovertick'
+              className='brand-logo-footer'
+            />
+            <p className='mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground'>
+              {t('footer.tagline')}
+            </p>
+            <div className='mt-6 flex gap-2.5'>
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  data-cursor-hover='true'
+                  className='group flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-foreground hover:shadow-[0_0_20px_rgba(176,110,255,0.2)]'
+                >
                   <Icon className='h-4 w-4' />
                 </a>
               ))}
             </div>
           </div>
+
+          {/* Company Links */}
+          <div className='lg:col-span-2'>
+            <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
+              {t('footer.company')}
+            </h4>
+            <ul className='space-y-3'>
+              {companyLinks.map(link => (
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    className='text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground'
+                    data-cursor-hover='true'
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className='lg:col-span-3'>
+            <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
+              {t('footer.services')}
+            </h4>
+            <ul className='space-y-3'>
+              {(localizedServices.length ? localizedServices : serviceCards)
+                .slice(0, 5)
+                .map(item => (
+                  <li key={item.title}>
+                    <span className='text-sm text-muted-foreground'>{item.title}</span>
+                  </li>
+                ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className='lg:col-span-3'>
+            <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
+              Get in Touch
+            </h4>
+            <ul className='space-y-4'>
+              <li>
+                <a
+                  href='mailto:hello@sovertick.com'
+                  className='flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground'
+                  data-cursor-hover='true'
+                >
+                  <Mail className='h-4 w-4 flex-shrink-0 text-primary' />
+                  hello@sovertick.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href='https://wa.me/447510078740'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground'
+                  data-cursor-hover='true'
+                >
+                  <Phone className='h-4 w-4 flex-shrink-0 text-primary' />
+                  WhatsApp Support
+                </a>
+              </li>
+              <li className='flex items-center gap-3 text-sm text-muted-foreground'>
+                <MapPin className='h-4 w-4 flex-shrink-0 text-primary' />
+                Remote-first, Global delivery
+              </li>
+              <li className='flex items-center gap-3 text-sm text-muted-foreground'>
+                <Globe className='h-4 w-4 flex-shrink-0 text-primary' />
+                sovertick.com
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className='footer-bottom'>
-          <p>{`© ${currentYear} Sovertick. All rights reserved.`}</p>
-          <p>Privacy | Terms</p>
+        {/* Bottom Bar */}
+        <div className='flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row'>
+          <p className='text-xs text-muted-foreground'>
+            © {currentYear} Sovertick. All rights reserved.
+          </p>
+          <div className='flex gap-6'>
+            <a href='#' className='text-xs text-muted-foreground transition-colors hover:text-foreground' data-cursor-hover='true'>
+              Privacy Policy
+            </a>
+            <a href='#' className='text-xs text-muted-foreground transition-colors hover:text-foreground' data-cursor-hover='true'>
+              Terms of Service
+            </a>
+            <a href='#' className='text-xs text-muted-foreground transition-colors hover:text-foreground' data-cursor-hover='true'>
+              Cookie Policy
+            </a>
+          </div>
         </div>
       </div>
     </footer>

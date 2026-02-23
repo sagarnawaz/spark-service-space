@@ -1,8 +1,10 @@
+import { Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Section, MagneticButton } from '@/lib/animation-helpers'
-import HeroNetwork from './HeroNetwork'
+
+const Hero3DScene = lazy(() => import('./Hero3DScene'))
 
 const HeroSection = () => {
   const { t } = useTranslation()
@@ -74,9 +76,9 @@ const HeroSection = () => {
         >
           <div className='hero-orb-left' />
           <div className='hero-orb-right' />
-          <div className='hero-glass-shell'>
-            <HeroNetwork />
-          </div>
+          <Suspense fallback={<div className='h-[320px]' />}>
+            <Hero3DScene />
+          </Suspense>
         </motion.div>
       </div>
       <motion.a
