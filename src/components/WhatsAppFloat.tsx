@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const WHATSAPP_NUMBER = '923180272619'
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
@@ -33,7 +33,7 @@ const WhatsAppFloat = () => {
           }}
           aria-label='Chat on WhatsApp'
         >
-          <MessageCircle className='h-5 w-5' />
+          <FaWhatsapp className='h-5 w-5' />
           <span className='hidden text-sm sm:inline'>WhatsApp</span>
         </motion.a>
       )}
