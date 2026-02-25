@@ -87,7 +87,7 @@ const Index = () => {
       >
         <Navbar solid={navbarSolid} activeSection={activeSection} />
 
-        <main>
+        <main role="main" aria-label="Sovertick Digital Agency">
           <HeroSection />
           <ServicesSection />
           <StatsSection />
