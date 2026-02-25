@@ -65,8 +65,8 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        <div className='grid gap-12 border-b border-white/[0.06] pb-12 sm:grid-cols-2 lg:grid-cols-12'>
-          <div className='lg:col-span-4'>
+        <div className='grid grid-cols-2 gap-8 border-b border-white/[0.06] pb-12 sm:gap-10 lg:grid-cols-12 lg:gap-12'>
+          <div className='col-span-2 lg:col-span-4'>
             <img
               src='/branding/sovertick-logo.svg'
               alt='Sovertick'
@@ -90,7 +90,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='lg:col-span-2'>
+          <div className='col-span-1 lg:col-span-2'>
             <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
               {t('footer.company')}
             </h4>
@@ -109,7 +109,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className='lg:col-span-3'>
+          <div className='col-span-1 lg:col-span-3'>
             <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
               {t('footer.services')}
             </h4>
@@ -124,7 +124,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className='lg:col-span-3'>
+          <div className='col-span-2 lg:col-span-3'>
             <h4 className='mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-foreground'>
               Get in Touch
             </h4>
