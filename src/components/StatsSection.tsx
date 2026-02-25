@@ -7,9 +7,9 @@ const StatsSection = () => {
   const { ref: statsRef, inView: statsInView } = useInView({ threshold: 0.35 })
 
   const stats = [
-    { n: 50, label: t('stats.projects', 'Projects') },
-    { n: 30, label: t('stats.clients', 'Clients') },
-    { n: 15, label: t('stats.experts', 'Experts') },
+    { n: 10, label: t('stats.projects', 'Projects') },
+    { n: 5, label: t('stats.clients', 'Clients') },
+    { n: 8, label: t('stats.experts', 'Experts') },
     { n: 98, label: t('stats.retention', 'Retention'), suffix: '%' },
   ]
 

@@ -24,7 +24,7 @@ const Footer = () => {
   ]
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/sovertick/', label: 'LinkedIn' },
     { icon: Github, href: '#', label: 'GitHub' },
     { icon: Twitter, href: '#', label: 'Twitter' },
     { icon: Instagram, href: '#', label: 'Instagram' },
@@ -141,7 +141,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href={`https://wa.me/923180272619?text=${encodeURIComponent("Hi! 👋 I'm interested in Sovertick's digital services. Can you help me?")}`}
+                  href={`https://wa.me/923180272619?text=${encodeURIComponent("Hi! I am interested in Sovertick's digital services. Can you help me?")}`}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground'
@@ -175,3 +175,4 @@ const Footer = () => {
 }
 
 export default Footer
+

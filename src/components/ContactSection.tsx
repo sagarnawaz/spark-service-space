@@ -11,6 +11,7 @@ const ContactSection = () => {
   const { t } = useTranslation()
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   const localizedServices = useMemo(() => {
     const value = t('services.items', { returnObjects: true })
@@ -19,6 +20,8 @@ const ContactSection = () => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (sending) return
+
     const form = event.currentTarget
     const formData = new FormData(form)
     const name = (formData.get('name') as string) || ''
@@ -33,13 +36,17 @@ const ContactSection = () => {
     const mailtoLink = `mailto:sales@sovertick.com?subject=${subject}&body=${body}`
 
     setSubmitted(false)
+    setSubmitError(false)
     setSending(true)
-    window.setTimeout(() => {
-      window.open(mailtoLink, '_blank')
-      setSending(false)
+    try {
+      window.location.href = mailtoLink
       setSubmitted(true)
       form.reset()
-    }, 800)
+    } catch {
+      setSubmitError(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -68,6 +75,7 @@ const ContactSection = () => {
           />
           <button
             type='submit'
+            disabled={sending}
             className='cta-main md:col-span-2 inline-flex items-center justify-center gap-2 rounded-full py-3'
             data-cursor-hover='true'
           >
@@ -83,6 +91,18 @@ const ContactSection = () => {
                 className='md:col-span-2 rounded-xl border border-[#FF6B6B55] bg-[#FF6B6B22] px-4 py-3 text-center text-sm text-[#F5F5F7]'
               >
                 {t('contact.sent')}
+              </motion.p>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
+            {submitError && (
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className='md:col-span-2 rounded-xl border border-[#FF6B6B55] bg-[#FF6B6B22] px-4 py-3 text-center text-sm text-[#F5F5F7]'
+              >
+                Unable to open your email app. Please email us at sales@sovertick.com.
               </motion.p>
             )}
           </AnimatePresence>
