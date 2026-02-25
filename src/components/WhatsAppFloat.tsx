@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 
-const WHATSAPP_NUMBER = '447510078740'
+const WHATSAPP_NUMBER = '923180272619'
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
 
 const WhatsAppFloat = () => {
