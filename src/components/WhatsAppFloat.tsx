@@ -3,7 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FaWhatsapp } from 'react-icons/fa'
 
 const WHATSAPP_NUMBER = '923180272619'
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
+const WHATSAPP_MESSAGE = encodeURIComponent(
+  `Hi! 👋 Welcome to *Sovertick* – Your Digital Growth Partner.\n\nWe specialize in Web Development, Mobile Apps, AI Solutions & UI/UX Design.\n\nHow can we help you today?`
+)
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
 const WhatsAppFloat = () => {
   const [visible, setVisible] = useState(false)

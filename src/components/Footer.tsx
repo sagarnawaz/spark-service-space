@@ -141,7 +141,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href='https://wa.me/923180272619'
+                  href={`https://wa.me/923180272619?text=${encodeURIComponent("Hi! 👋 I'm interested in Sovertick's digital services. Can you help me?")}`}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground'
