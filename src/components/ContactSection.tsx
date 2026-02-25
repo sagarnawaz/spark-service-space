@@ -19,12 +19,27 @@ const ContactSection = () => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const name = (formData.get('name') as string) || ''
+    const email = (formData.get('email') as string) || ''
+    const service = (formData.get('service') as string) || ''
+    const message = (formData.get('message') as string) || ''
+
+    const subject = encodeURIComponent(`New Project Inquiry from ${name}`)
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`
+    )
+    const mailtoLink = `mailto:sales@sovertick.com?subject=${subject}&body=${body}`
+
     setSubmitted(false)
     setSending(true)
     window.setTimeout(() => {
+      window.open(mailtoLink, '_blank')
       setSending(false)
       setSubmitted(true)
-    }, 1300)
+      form.reset()
+    }, 800)
   }
 
   return (
@@ -35,9 +50,9 @@ const ContactSection = () => {
         </h2>
         <p className='section-poetic text-center'>{t('contact.poetic')}</p>
         <form className='mt-8 grid gap-4 md:grid-cols-2' onSubmit={onSubmit}>
-          <input className='input-premium' placeholder={t('contact.name')} required />
-          <input className='input-premium' type='email' placeholder={t('contact.email')} required />
-          <select className='input-premium md:col-span-2' required defaultValue=''>
+          <input className='input-premium' name='name' placeholder={t('contact.name')} required />
+          <input className='input-premium' name='email' type='email' placeholder={t('contact.email')} required />
+          <select className='input-premium md:col-span-2' name='service' required defaultValue=''>
             <option value='' disabled>{t('contact.serviceNeeded')}</option>
             {(localizedServices.length ? localizedServices : serviceCards)
               .slice(0, 4)
@@ -47,6 +62,7 @@ const ContactSection = () => {
           </select>
           <textarea
             className='input-premium min-h-32 md:col-span-2'
+            name='message'
             placeholder={t('contact.message')}
             required
           />

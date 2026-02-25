@@ -131,24 +131,24 @@ const Footer = () => {
             <ul className='space-y-4'>
               <li>
                 <a
-                  href='mailto:hello@sovertick.com'
+                  href='mailto:info@sovertick.com'
                   className='flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground'
                   data-cursor-hover='true'
                 >
                   <Mail className='h-4 w-4 flex-shrink-0 text-primary' />
-                  hello@sovertick.com
+                  info@sovertick.com
                 </a>
               </li>
               <li>
                 <a
-                  href='https://wa.me/447510078740'
+                  href='https://wa.me/923180272619'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground'
                   data-cursor-hover='true'
                 >
                   <Phone className='h-4 w-4 flex-shrink-0 text-primary' />
-                  WhatsApp Support
+                  +92 318 027 2619
                 </a>
               </li>
               <li className='flex items-center gap-3 text-sm text-muted-foreground'>
