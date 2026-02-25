@@ -151,14 +151,6 @@ const Footer = () => {
                   +92 318 027 2619
                 </a>
               </li>
-              <li className='flex items-center gap-3 text-sm text-muted-foreground'>
-                <MapPin className='h-4 w-4 flex-shrink-0 text-primary' />
-                Remote-first, Global delivery
-              </li>
-              <li className='flex items-center gap-3 text-sm text-muted-foreground'>
-                <Globe className='h-4 w-4 flex-shrink-0 text-primary' />
-                sovertick.com
-              </li>
             </ul>
           </div>
         </div>
