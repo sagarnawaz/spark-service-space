@@ -30,7 +30,13 @@ const Navbar = ({
     <header className={`sovertick-nav ${solid ? 'nav-solid' : ''}`}>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10'>
         <a href='#home' className='brand-mark' data-cursor-hover='true'>
-          <img src='/branding/sovertick-logo.svg' alt='Sovertick' className='brand-logo-full' />
+          <img
+            src='/branding/sovertick-logo.svg'
+            alt='Sovertick digital agency logo'
+            className='brand-logo-full'
+            loading='eager'
+            decoding='async'
+          />
         </a>
         <nav className='hidden items-center gap-8 lg:flex'>
           {localizedNav.map(link => (

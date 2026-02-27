@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Section, MagneticButton } from '@/lib/animation-helpers'
-import heroIllustration from '@/assets/hero-illustration.png'
 
 const HeroSection = () => {
   const { t } = useTranslation()
@@ -10,7 +9,7 @@ const HeroSection = () => {
   return (
     <Section id='home' className='section-hero px-4 pb-12 pt-14 sm:px-6 lg:px-10 lg:pt-16'>
       <div className='mx-auto max-w-7xl'>
-        <div className='grid items-center gap-10 lg:grid-cols-2 lg:gap-16'>
+        <div className='grid items-center gap-10 lg:gap-16'>
           <div>
             <motion.p
               initial={{ opacity: 0, scale: 0.8 }}
@@ -66,22 +65,6 @@ const HeroSection = () => {
               </MagneticButton>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85, x: 40 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
-            className='hidden lg:flex items-center justify-center'
-          >
-            <motion.img
-              src={heroIllustration}
-              alt='Professional working on digital marketing dashboard'
-              className='w-full max-w-lg xl:max-w-xl drop-shadow-2xl'
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              loading='eager'
-            />
-          </motion.div>
         </div>
       </div>
       <motion.a

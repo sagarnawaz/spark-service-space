@@ -16,6 +16,7 @@ import FaqSection from '@/components/FaqSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
+import Seo from '@/components/Seo'
 
 const Index = () => {
   const { i18n } = useTranslation()
@@ -27,6 +28,29 @@ const Index = () => {
   const [cursorHover, setCursorHover] = useState(false)
 
   const navIds = useMemo(() => ['home', 'services', 'work', 'about', 'faq', 'contact'], [])
+  const structuredData = useMemo(
+    () => [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Sovertick',
+        url: 'https://sovertick.com/',
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://sovertick.com/',
+          },
+        ],
+      },
+    ],
+    [],
+  )
 
   useEffect(() => {
     const isRtl = ['ar', 'ur'].includes(currentLang)
@@ -71,7 +95,16 @@ const Index = () => {
   }, [])
 
   return (
-    <div className='sovertick-root'>
+    <>
+      <Seo
+        title='Sovertick | Web, Mobile & AI Development'
+        description='Sovertick builds fast websites, mobile apps, and AI solutions for growing businesses, with UI/UX design and scalable engineering from idea to launch globally.'
+        keywords='web development agency, mobile app development, AI software development, UI UX design services, custom software company, Sovertick'
+        canonicalPath='/'
+        image='/branding/sovertick-logo.svg'
+        structuredData={structuredData}
+      />
+      <div className='sovertick-root'>
       <motion.div
         className={`cursor-dot-lite ${cursorHover ? 'cursor-active' : ''}`}
         animate={{ x: cursorPos.x - 6, y: cursorPos.y - 6 }}
@@ -104,7 +137,8 @@ const Index = () => {
         <Footer />
         <WhatsAppFloat />
       </motion.div>
-    </div>
+      </div>
+    </>
   )
 }
 

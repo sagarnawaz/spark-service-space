@@ -62,9 +62,10 @@ const PortfolioSection = () => {
                 <figure className='portfolio-shot'>
                   <img
                     src={item.image}
-                    alt={item.name}
+                    alt={`${item.name} project preview`}
                     className='portfolio-shot-image'
                     loading='lazy'
+                    decoding='async'
                   />
                 </figure>
 
@@ -153,8 +154,10 @@ const PortfolioSection = () => {
               <div className='relative h-56 overflow-hidden sm:h-72'>
                 <img
                   src={activeProject.image}
-                  alt={activeProject.name}
+                  alt={`${activeProject.name} detailed preview`}
                   className='h-full w-full object-cover'
+                  loading='lazy'
+                  decoding='async'
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent' />
                 {'category' in activeProject && (

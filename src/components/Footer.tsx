@@ -69,8 +69,10 @@ const Footer = () => {
           <div className='col-span-2 lg:col-span-4'>
             <img
               src='/branding/sovertick-logo.svg'
-              alt='Sovertick'
+              alt='Sovertick digital agency brand logo'
               className='brand-logo-footer'
+              loading='lazy'
+              decoding='async'
             />
             <p className='mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground'>
               {t('footer.tagline')}
@@ -82,6 +84,8 @@ const Footer = () => {
                   href={href}
                   aria-label={label}
                   data-cursor-hover='true'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='group flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-foreground hover:shadow-[0_0_20px_rgba(176,110,255,0.2)]'
                 >
                   <Icon className='h-4 w-4' />
