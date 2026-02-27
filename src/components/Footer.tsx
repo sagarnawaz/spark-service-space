@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Github, Globe, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react'
+import { ArrowRight, Facebook, Globe, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { serviceCards } from '@/data/home'
 
@@ -25,9 +26,9 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/company/sovertick/', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Facebook, href: 'https://www.facebook.com/share/1Hf66TUsce/', label: 'Facebook' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/sovertick?igsh=b2JjbWlxdTJsMDBl', label: 'Instagram' },
   ]
 
   return (
@@ -67,13 +68,16 @@ const Footer = () => {
 
         <div className='grid grid-cols-2 gap-8 border-b border-white/[0.06] pb-12 sm:gap-10 lg:grid-cols-12 lg:gap-12'>
           <div className='col-span-2 lg:col-span-4'>
-            <img
-              src='/branding/sovertick-logo.svg'
-              alt='Sovertick digital agency brand logo'
-              className='brand-logo-footer'
-              loading='lazy'
-              decoding='async'
-            />
+            <div className='brand-mark'>
+              <img
+                src='/branding/sovertick-logo.svg'
+                alt='Sovertick digital agency brand logo'
+                className='brand-logo-footer'
+                loading='lazy'
+                decoding='async'
+              />
+              <span className='brand-text text-sm sm:text-base'>SOVERTICK</span>
+            </div>
             <p className='mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground'>
               {t('footer.tagline')}
             </p>
@@ -162,15 +166,27 @@ const Footer = () => {
         <div className='flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row'>
           <p className='text-xs text-muted-foreground'>(c) {currentYear} Sovertick. All rights reserved.</p>
           <div className='flex flex-wrap items-center justify-center gap-4 sm:justify-end sm:gap-6'>
-            <a href='#' className='text-xs text-muted-foreground transition-colors hover:text-foreground' data-cursor-hover='true'>
+            <Link
+              to='/privacy-policy'
+              className='text-xs text-muted-foreground transition-colors hover:text-foreground'
+              data-cursor-hover='true'
+            >
               Privacy Policy
-            </a>
-            <a href='#' className='text-xs text-muted-foreground transition-colors hover:text-foreground' data-cursor-hover='true'>
+            </Link>
+            <Link
+              to='/terms-of-service'
+              className='text-xs text-muted-foreground transition-colors hover:text-foreground'
+              data-cursor-hover='true'
+            >
               Terms of Service
-            </a>
-            <a href='#' className='text-xs text-muted-foreground transition-colors hover:text-foreground' data-cursor-hover='true'>
+            </Link>
+            <Link
+              to='/cookie-policy'
+              className='text-xs text-muted-foreground transition-colors hover:text-foreground'
+              data-cursor-hover='true'
+            >
               Cookie Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>

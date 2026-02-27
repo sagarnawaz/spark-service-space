@@ -37,6 +37,7 @@ const Navbar = ({
             loading='eager'
             decoding='async'
           />
+          <span className='brand-text text-base sm:text-lg'>SOVERTICK</span>
         </a>
         <nav className='hidden items-center gap-8 lg:flex'>
           {localizedNav.map(link => (

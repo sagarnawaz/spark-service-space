@@ -1,4 +1,4 @@
-﻿import { ArrowRight, Check, ChevronDown, Cloud, Code2, Cpu, Figma, Github, Globe, Instagram, Layers3, Linkedin, Lock, Menu, MonitorSmartphone, Rocket, Server, Sparkles, Star, Twitter, X,} from 'lucide-react'
+import { ArrowRight, Check, ChevronDown, Cloud, Code2, Cpu, Figma, Github, Globe, Instagram, Layers3, Linkedin, Lock, Menu, MonitorSmartphone, Rocket, Server, Sparkles, Star, Twitter, X,} from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { FaAws, FaWhatsapp } from 'react-icons/fa'
@@ -1288,7 +1288,7 @@ const Index = () => {
             </div>
 
             <div className='footer-bottom'>
-              <p>{`© ${currentYear} Sovertick. All rights reserved.`}</p>
+              <p>{`� ${currentYear} Sovertick. All rights reserved.`}</p>
               <p>Privacy | Terms</p>
             </div>
           </div>
@@ -1311,3 +1311,5 @@ const Index = () => {
 }
 
 export default Index
+
+
