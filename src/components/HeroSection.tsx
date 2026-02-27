@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown, Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Section, MagneticButton } from '@/lib/animation-helpers'
-import heroAbstract from '@/assets/hero-abstract-3d.png'
+import heroIllustration from '@/assets/hero-illustration.png'
 
 const HeroSection = () => {
   const { t } = useTranslation()
@@ -10,8 +10,8 @@ const HeroSection = () => {
   return (
     <Section id='home' className='section-hero px-4 pb-12 pt-14 sm:px-6 lg:px-10 lg:pt-16'>
       <div className='mx-auto max-w-7xl'>
-        <div className='relative'>
-          <div className='relative z-10 max-w-2xl'>
+        <div className='grid items-center gap-10 lg:grid-cols-2 lg:gap-16'>
+          <div>
             <motion.p
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -71,14 +71,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.85, x: 40 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
-            className='pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 items-end justify-end overflow-hidden lg:flex'
+            className='hidden lg:flex items-center justify-center'
           >
             <motion.img
-              src={heroAbstract}
-              alt='Abstract 3D flowing gradient'
-              className='h-full w-full object-cover object-left opacity-70'
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+              src={heroIllustration}
+              alt='Professional working on digital marketing dashboard'
+              className='w-full max-w-lg xl:max-w-xl drop-shadow-2xl'
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               loading='eager'
             />
           </motion.div>
