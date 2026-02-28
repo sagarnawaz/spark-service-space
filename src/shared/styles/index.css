@@ -373,9 +373,15 @@
   .hero-visual-wrap {
     position: relative;
     min-height: 250px;
-    display: flex;
+    display: none;
     align-items: center;
-    animation: float-y 4.4s ease-in-out infinite;
+    justify-content: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-visual-wrap {
+      display: flex;
+    }
   }
 
   .hero-orb-left {
@@ -396,6 +402,21 @@
     border-radius: 9999px;
     filter: blur(62px);
     background: radial-gradient(circle, rgba(255, 107, 107, 0.3), rgba(255, 107, 107, 0));
+  }
+
+  .hero-illustration-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 540px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, black 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, black 55%, transparent 100%);
+    filter: drop-shadow(0 0 40px rgba(176, 110, 255, 0.25))
+           drop-shadow(0 0 80px rgba(236, 72, 153, 0.15));
   }
 
   .hero-glass-shell {

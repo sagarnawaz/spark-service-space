@@ -89,7 +89,7 @@ const PortfolioSection = () => {
 
                 {/* Overlay */}
                 <div className='portfolio-overlay'>
-                  <h3 className='text-2xl font-bold text-foreground'>{item.name}</h3>
+                  <h2 className='text-2xl font-bold text-foreground'>{item.name}</h2>
                   <p className='mt-2 text-sm text-muted-foreground'>{item.text}</p>
                   <div className='mt-4 flex flex-wrap gap-2'>
                     {item.tags.map(tag => (
@@ -177,9 +177,9 @@ const PortfolioSection = () => {
                     <p className='text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground'>
                       {t('modal.overview')}
                     </p>
-                    <h3 className='mt-2 text-2xl font-bold text-foreground'>
+                    <h2 className='mt-2 text-2xl font-bold text-foreground'>
                       {activeProject.name}
-                    </h3>
+                    </h2>
                   </div>
                   <button
                     type='button'

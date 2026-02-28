@@ -3,13 +3,14 @@ import { ArrowRight, ChevronDown, Globe } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Section, MagneticButton } from '@/lib/animation-helpers'
 
+
 const HeroSection = () => {
   const { t } = useTranslation()
 
   return (
     <Section id='home' className='section-hero px-4 pb-12 pt-14 sm:px-6 lg:px-10 lg:pt-16'>
       <div className='mx-auto max-w-7xl'>
-        <div className='grid items-center gap-10 lg:gap-16'>
+        <div className='grid items-center gap-10 lg:grid-cols-2 lg:gap-16'>
           <div>
             <motion.p
               initial={{ opacity: 0, scale: 0.8 }}
@@ -26,15 +27,10 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0 }}
               >
-                {t('hero.title1')}
-              </motion.h1>
-              <motion.h1
-                className='hero-title gradient-title shimmer-text'
-                initial={{ opacity: 0, y: 32 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                {t('hero.title2')}
+                {t('hero.title1')}{' '}
+                <span className='gradient-title shimmer-text inline-block'>
+                  {t('hero.title2')}
+                </span>
               </motion.h1>
             </div>
             <motion.p
@@ -65,6 +61,25 @@ const HeroSection = () => {
               </MagneticButton>
             </motion.div>
           </div>
+
+          {/* Hero Illustration */}
+          <motion.div
+            className='hero-visual-wrap'
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
+          >
+            <div className='hero-orb-left' />
+            <div className='hero-orb-right' />
+            <img
+              src='/illustrations/hero-illustration.png'
+              alt='Software engineer working with holographic code screens'
+              className='hero-illustration-img'
+              width={600}
+              height={600}
+              loading='eager'
+            />
+          </motion.div>
         </div>
       </div>
       <motion.a

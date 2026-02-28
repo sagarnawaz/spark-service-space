@@ -38,11 +38,54 @@ const Seo = ({
 
   const organizationSchema: JsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'LocalBusiness',
     name: 'Sovertick',
+    image: `${SITE_URL}/branding/sovertick-logo.svg`,
+    '@id': SITE_URL,
     url: SITE_URL,
-    logo: `${SITE_URL}/branding/sovertick-logo.svg`,
-    sameAs: ['https://www.linkedin.com/company/sovertick/'],
+    telephone: '+923180272619',
+    priceRange: '$$$',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Global',
+    },
+    description: DEFAULT_KEYWORDS,
+    sameAs: [
+      'https://www.linkedin.com/company/sovertick/',
+      'https://www.facebook.com/share/1Hf66TUsce/',
+      'https://www.instagram.com/sovertick?igsh=b2JjbWlxdTJsMDBl'
+    ],
+  }
+
+  const serviceSchema: JsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Software Development',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Sovertick'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Software Services',
+      itemListElement: [
+        {
+          '@type': 'OfferCatalog',
+          name: 'Web Development',
+          description: 'High-performance scalable web applications and enterprise platforms.'
+        },
+        {
+          '@type': 'OfferCatalog',
+          name: 'Mobile App Development',
+          description: 'Native and cross-platform mobile experiences.'
+        },
+        {
+          '@type': 'OfferCatalog',
+          name: 'AI-Powered Solutions',
+          description: 'Custom AI integration, automation, and intelligent tools.'
+        }
+      ]
+    }
   }
 
   return (
@@ -66,6 +109,7 @@ const Seo = ({
       <meta name='twitter:image' content={socialImageUrl} />
 
       <script type='application/ld+json'>{JSON.stringify(organizationSchema)}</script>
+      <script type='application/ld+json'>{JSON.stringify(serviceSchema)}</script>
       {structuredData.map((schema, index) => (
         <script key={`jsonld-${index}`} type='application/ld+json'>
           {JSON.stringify(schema)}

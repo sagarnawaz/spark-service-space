@@ -27,7 +27,7 @@ const AboutSection = () => {
             <div className='vision-illustration'>
               <Rocket className='h-6 w-6 text-[#FFD93D]' />
             </div>
-            <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>{t('about.visionTitle')}</h3>
+            <h2 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>{t('about.visionTitle')}</h2>
             <p className='mt-3 text-[#6E7191]'>{t('about.visionText1')}</p>
             <p className='mt-3 text-[#6E7191]'>{t('about.visionText2')}</p>
           </motion.article>
@@ -41,14 +41,14 @@ const AboutSection = () => {
             <div className='vision-illustration'>
               <Sparkles className='h-6 w-6 text-[#B06EFF]' />
             </div>
-            <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>{t('about.missionTitle')}</h3>
+            <h2 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>{t('about.missionTitle')}</h2>
             <p className='mt-3 text-[#6E7191]'>{t('about.missionText1')}</p>
             <p className='mt-3 text-[#6E7191]'>{t('about.missionText2')}</p>
           </motion.article>
         </div>
 
         <div className='mt-8'>
-          <h3 className='text-xl font-semibold text-[#F5F5F7]'>{t('about.coreValuesTitle')}</h3>
+          <h2 className='text-xl font-semibold text-[#F5F5F7]'>{t('about.coreValuesTitle')}</h2>
           <div className='mt-4 grid gap-4 md:grid-cols-3'>
             {coreValues.map((item, index) => (
               <motion.article
@@ -70,7 +70,7 @@ const AboutSection = () => {
         </div>
 
         <div className='mt-8'>
-          <h3 className='text-xl font-semibold text-[#F5F5F7]'>{t('about.beliefsTitle')}</h3>
+          <h2 className='text-xl font-semibold text-[#F5F5F7]'>{t('about.beliefsTitle')}</h2>
           <div className='mt-4 grid gap-3'>
             {beliefs.map((belief, index) => (
               <motion.div

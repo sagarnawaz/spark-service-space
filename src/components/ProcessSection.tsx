@@ -37,9 +37,9 @@ const ProcessSection = () => {
               className='process-card'
             >
               <div className='process-dot'>{step.step}</div>
-              <h3 className='mt-4 text-lg font-semibold text-[#F5F5F7]'>
+              <h2 className='mt-4 text-lg font-semibold text-[#F5F5F7]'>
                 {localizedProcess[index]?.title ?? step.title}
-              </h3>
+              </h2>
               <p className='mt-2 text-sm text-[#6E7191]'>
                 {localizedProcess[index]?.text ?? step.text}
               </p>

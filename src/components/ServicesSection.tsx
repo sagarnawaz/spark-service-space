@@ -41,9 +41,9 @@ const ServicesSection = () => {
               <div className='service-icon-wrap'>
                 <card.icon className='h-6 w-6' />
               </div>
-              <h3 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>
+              <h2 className='mt-5 text-xl font-semibold text-[#F5F5F7]'>
                 {localizedServices[index]?.title ?? card.title}
-              </h3>
+              </h2>
               <p className='mt-1 italic text-[#6E7191]'>
                 {localizedServices[index]?.poetic ?? card.poetic}
               </p>

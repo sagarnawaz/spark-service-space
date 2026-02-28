@@ -34,7 +34,7 @@ const FaqSection = () => {
                 }
                 className='flex w-full items-center justify-between gap-4 px-5 py-4 text-left'
               >
-                <h3 className='text-base font-semibold text-[#F5F5F7]'>{faq.question}</h3>
+                <h2 className='text-base font-semibold text-[#F5F5F7]'>{faq.question}</h2>
                 <ChevronDown
                   className={`h-4 w-4 text-[#B06EFF] transition-transform ${
                     activeFaqIndex === index ? 'rotate-180' : ''
