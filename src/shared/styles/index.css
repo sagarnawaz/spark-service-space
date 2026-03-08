@@ -415,8 +415,6 @@
     mix-blend-mode: screen;
     -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, black 55%, transparent 100%);
     mask-image: radial-gradient(ellipse 85% 80% at 50% 50%, black 55%, transparent 100%);
-    filter: drop-shadow(0 0 40px rgba(176, 110, 255, 0.25))
-           drop-shadow(0 0 80px rgba(236, 72, 153, 0.15));
   }
 
   .hero-glass-shell {
