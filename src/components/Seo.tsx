@@ -43,7 +43,7 @@ const Seo = ({
     image: `${SITE_URL}/branding/sovertick-logo.svg`,
     '@id': SITE_URL,
     url: SITE_URL,
-    telephone: '+923180272619',
+    telephone: '+923441804092',
     priceRange: '$$$',
     address: {
       '@type': 'PostalAddress',

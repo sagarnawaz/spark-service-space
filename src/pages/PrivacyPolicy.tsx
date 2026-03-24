@@ -90,7 +90,7 @@ const PrivacyPolicy = () => {
         <h2 className='text-xl font-semibold text-foreground'>10. Contact</h2>
         <p className='mt-2'>For privacy-related questions, contact us at:</p>
         <p className='mt-2'>Email: info@sovertick.com</p>
-        <p>WhatsApp: +92 318 027 2619</p>
+        <p>WhatsApp: +923441804092</p>
       </section>
     </LegalLayout>
   )

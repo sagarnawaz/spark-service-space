@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaWhatsapp } from 'react-icons/fa'
 
-const WHATSAPP_NUMBER = '923180272619'
+const WHATSAPP_NUMBER = '923441804092'
 const WHATSAPP_MESSAGE = encodeURIComponent(
   `Hi Sovertick team, I need help with my project.\n\nPlease share details about your services and pricing.`
 )

@@ -149,14 +149,14 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href={`https://wa.me/923180272619?text=${encodeURIComponent("Hi! I am interested in Sovertick's digital services. Can you help me?")}`}
+                  href={`https://wa.me/923441804092?text=${encodeURIComponent("Hi! I am interested in Sovertick's digital services. Can you help me?")}`}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground'
                   data-cursor-hover='true'
                 >
                   <Phone className='h-4 w-4 flex-shrink-0 text-primary' />
-                  +92 318 027 2619
+                  +923441804092
                 </a>
               </li>
             </ul>

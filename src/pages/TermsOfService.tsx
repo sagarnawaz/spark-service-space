@@ -107,7 +107,7 @@ const TermsOfService = () => {
         <h2 className='text-xl font-semibold text-foreground'>13. Contact</h2>
         <p className='mt-2'>For legal or contractual questions, contact:</p>
         <p className='mt-2'>Email: info@sovertick.com</p>
-        <p>WhatsApp: +92 318 027 2619</p>
+        <p>WhatsApp: +923441804092</p>
       </section>
     </LegalLayout>
   )

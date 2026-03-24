@@ -1,4 +1,4 @@
-import { ArrowRight, Check, ChevronDown, Cloud, Code2, Cpu, Figma, Github, Globe, Instagram, Layers3, Linkedin, Lock, Menu, MonitorSmartphone, Rocket, Server, Sparkles, Star, Twitter, X,} from 'lucide-react'
+ï»¿import { ArrowRight, Check, ChevronDown, Cloud, Code2, Cpu, Figma, Github, Globe, Instagram, Layers3, Linkedin, Lock, Menu, MonitorSmartphone, Rocket, Server, Sparkles, Star, Twitter, X,} from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { FaAws, FaWhatsapp } from 'react-icons/fa'
@@ -521,7 +521,7 @@ const Index = () => {
     [],
   )
   const currentYear = new Date().getFullYear()
-  const whatsappNumber = '923001234567'
+  const whatsappNumber = '923441804092'
   const whatsappMessage = 'Hi Sovertick, I need support for my project.'
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
 
@@ -1288,7 +1288,7 @@ const Index = () => {
             </div>
 
             <div className='footer-bottom'>
-              <p>{`© ${currentYear} Sovertick. All rights reserved.`}</p>
+              <p>{`ï¿½ ${currentYear} Sovertick. All rights reserved.`}</p>
               <p>Privacy | Terms</p>
             </div>
           </div>
